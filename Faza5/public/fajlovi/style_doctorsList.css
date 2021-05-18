@@ -1,0 +1,19 @@
+/* Jevtić Ivan 18/0550 */
+.right {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#doctorsList img {
+    height: 300px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: space-around;
+    text-align: left;
+}
+
+#doctorsList table {
+    text-align: right;
+    margin-top: 14px;
+}
+

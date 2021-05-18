@@ -1,0 +1,21 @@
+/* Jevtić Ivan 18/0550 */
+.right a {
+    color: white;
+    
+}
+
+.right {
+    margin-top: 20px;
+    margin-bottom: 200px;
+}
+
+#picAndInfo img {
+    height: 400px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: space-around;
+}
+
+#picAndInfo td {
+    align-items: center;
+}

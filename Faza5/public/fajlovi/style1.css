@@ -1,0 +1,59 @@
+/* Jevtić Ivan 18/0550 */
+/* Kojić Filip 18/0285 */
+/* Zarić Filip 18/0345 */
+.col-sm-12 {
+    padding: 0px;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: white;
+}
+
+.nav-item a:hover {
+    color: gray;
+}
+
+nav {
+    font-size: 15px;
+    /* text-align: center; */
+    justify-items: space-between;
+}
+
+#header {
+    background-color: #eb1b23;
+    color: white;
+}
+
+.left{
+    background-color: lightgray;
+    vertical-align: middle;
+    padding:3px;
+}
+
+.left img{
+    align-items: center;
+    margin-top: 150px;
+    margin-left: 20px;
+    margin-bottom: 180px;
+    width: 160px;
+}
+
+.footer {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #eb1b23;
+    color: white;
+}
+
+h2 {
+    color: gray;
+}
+
+#wellcomeMsg {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    margin-top: 30px;
+}
