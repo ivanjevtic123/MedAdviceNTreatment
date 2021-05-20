@@ -28,7 +28,7 @@
                             <a class="nav-link" href="<?= site_url("#")?>">USLUGE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">UKLONI KORISNIKA</a>
+                            <a class="nav-link" href="<?= site_url("Menadzer/ukloni")?>">UKLONI KORISNIKA</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("#")?>">ZAHTEVI</a>
