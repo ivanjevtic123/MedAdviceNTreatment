@@ -43,8 +43,18 @@
             </div>
 
             <!-- Right Div -->
-<div class="col-lg-10 col-md-10 right">
+<div class="col-lg-8 col-md-8 right">
                 <h1 id="wellcomeMsg">Dobrodošli</h1>
+                 <div class="alert alert-warning alert-dismissible ">
+ <button type="button" class="close" datadismiss="alert">&times;</button>
+ Kako biste mogli da zakažete termin i ostvarite medicinski tretman neophodno je da <br>
+ popunjavanjem sledeće kreirate karton!
+ <br>
+ U polja koja biste ostavili prazna upišite- "/"
+</div>   
+
+  
+
             </div>
             </div>
 

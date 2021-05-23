@@ -5,7 +5,7 @@
     #Filip Zaric 0345/2018
 
 namespace App\Controllers;
-
+use App\Models\KorisnikModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -58,4 +58,47 @@ class BaseController extends Controller
         $this->session->destroy();
         return redirect()->to(site_url('/'));
     }
+	#Filip Zaric 0345/2018
+	public function promenaLozinke($poruka=null,$vrsta=0){
+        
+        $this->prikaz('promenaLozinke', ['poruka'=>$poruka,'vrsta'=>$vrsta]);
+     
+    }
+	#Filip Zaric 0345/2018
+    public function promenaLozinkeObrada(){
+
+        if(!$this->validate(['staraLoz'=>'required','novaLoz1'=>'required','novaLoz2'=>'required'])){
+            return $this->promenaLozinke("Morate popuniti sva polja!");
+   }
+   $staraLoz=$this->request->getVar('staraLoz');
+   $novaLoz1=$this->request->getVar('novaLoz1');
+   $novaLoz2=$this->request->getVar('novaLoz2');
+   if($novaLoz1!=$novaLoz2){
+     return $this->promenaLozinke("Niste uneli korektnu vrednost prilikom potvrde nove lozinke!");
+
+   }
+   $korisnikModel=new KorisnikModel();
+   
+   #	$korisnik = $korisnikModel->where('KorisnickoIme',$this->request->getVar('username'))->where('NaCekanju',0)->first();
+   $korisnikTrenutni=$this->session->get('korisnik');
+   if($korisnikTrenutni->Lozinka==$staraLoz){
+    $upit_data = [
+        'Lozinka' => $novaLoz1
+        
+    ];
+    
+    $korisnikModel->update($korisnikTrenutni->IdK, $upit_data);
+     $korisnikTrenutni->Lozinka=$novaLoz1;
+     $this->session->set('korisnik',$korisnikTrenutni); 
+     return $this->promenaLozinke("Uspesno ste promenili Lozinku!",1);
+
+   }else{
+    return $this->promenaLozinke("Uneli ste neispravnu vrednost stare Lozinke!");
+   }
+
+
+    }
+	public function LozPoc(){
+	return $this->promenaLozinkeObrada();
+	}
 }

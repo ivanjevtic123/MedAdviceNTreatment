@@ -6,7 +6,7 @@ use App\Models\KorisnikModel;
     #Ivan Jevtic 0550/2018
     #Filip Kojic 0285/2018
     #Filip Zaric 0345/2018
-
+   
 class Lekar extends BaseController
 {
     protected function prikaz($page, $data) {

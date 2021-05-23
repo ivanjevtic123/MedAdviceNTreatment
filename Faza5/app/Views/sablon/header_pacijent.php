@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/fajlovi/style1.css">
     <link rel="stylesheet" href="/fajlovi/style_services.css">
     <link rel="stylesheet" href="/fajlovi/odobravanjeZahteva.css">
+    <link rel="stylesheet" href="/fajlovi/newKarton.css">
     <script src="/fajlovi/bootstrap.min.js"></script>
 </head>
 <body>
@@ -28,13 +29,13 @@
                             <a class="nav-link" href="<?= site_url("#")?>">USLUGE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">PREGLED KARTONA</a>
+                            <a class="nav-link" href="<?= site_url("Pacijent/noviKarton")?>">PREGLED KARTONA</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("Pacijent/oceni")?>">MOJI LEKARI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">PROMENI LOZINKU</a>
+                            <a class="nav-link" href="<?= site_url("Pacijent/promenaLozinke")?>">PROMENI LOZINKU</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("Gost/index")?>">LOGOUT</a>

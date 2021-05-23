@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/fajlovi/style1.css">
     <link rel="stylesheet" href="/fajlovi/style_services.css">
     <link rel="stylesheet" href="/fajlovi/odobravanjeZahteva.css">
+    <link rel="stylesheet" href="promenaBoot.css">
     <script src="/fajlovi/bootstrap.min.js"></script>
 </head>
 <body>
@@ -31,10 +32,10 @@
                             <a class="nav-link" href="<?= site_url("Menadzer/ukloni")?>">UKLONI KORISNIKA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">ZAHTEVI</a>
+                            <a class="nav-link" href="<?= site_url("Menadzer/zahtev")?>">ZAHTEVI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">PROMENI LOZINKU</a>
+                            <a class="nav-link" href="<?= site_url("Menadzer/promenaLozinke")?>">PROMENI LOZINKU</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("Gost/index")?>">LOGOUT</a>
