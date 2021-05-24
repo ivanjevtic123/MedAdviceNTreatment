@@ -163,5 +163,12 @@ class Gost extends BaseController
             return redirect()->to(site_url('Gost'));
         }
 		
+		#Ivan Jevtic 0550/2018
+        public function services($poruka = null) {
+            $uslugaModel = new UslugaModel();
+            $usluge = $uslugaModel->getUsluge();
+            $this->prikaz('services', ['poruka'=>$poruka,'usluge'=>$usluge]);
+        }
+		
     
 }
