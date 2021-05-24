@@ -8,7 +8,7 @@ class KorisnikModel extends Model
         protected $table      = 'korisnik';
         protected $primaryKey = 'IdK';
         protected $returnType = 'object';
-        protected $allowedFields = ['Ime', 'Prezime', 'KorisnickoIme', 'Lozinka', 'E-posta', 'DatumRodjenja' , 'MestoRodjenja', 'MestoPrebivalista' , 'AdresaPrebivalista' , 'JMBG', 'Pol'
+        protected $allowedFields = ['Ime', 'Prezime', 'KorisnickoIme', 'Lozinka', 'E_posta', 'DatumRodjenja' , 'MestoRodjenja', 'MestoPrebivalista' , 'AdresaPrebivalista' , 'JMBG', 'Pol'
     ,'NaCekanju','JeObrisan',  'KrvnaGrupa','IstorijaBolesti','HronicneBolesti','ZarazneBolesti','LekoviAlergije',
      'HiruskiZahvati','Rezime','Slika','ZbirOcena','BrojOcena','Uloga'];
     
