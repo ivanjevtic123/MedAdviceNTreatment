@@ -38,7 +38,7 @@
                             <a class="nav-link" href="<?= site_url("Pacijent/promenaLozinke")?>">PROMENI LOZINKU</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("Gost/index")?>">LOGOUT</a>
+                            <a class="nav-link" href="<?= site_url("Pacijent/logout")?>">LOGOUT</a>
                         </li>
                     </ul>
                 </nav>
