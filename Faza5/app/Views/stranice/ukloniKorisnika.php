@@ -1,4 +1,8 @@
-     <!--Filip Kojic 0285/2018-->
+<?php
+/**
+ * @author Filip Kojic 0285/2018
+ */
+?>
         <div class="col-lg-8 col-md-8 right">
           <br>
           <?php if($korisnici != null) {?>

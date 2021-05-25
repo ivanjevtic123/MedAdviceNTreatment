@@ -7,8 +7,22 @@
 namespace App\Controllers;
 use App\Models\KorisnikModel;
 
+
+/**
+ * Klasa Menadzer - implementira metode kontrolera koje sluzi za funkcionalnosti menadzera 
+ * 
+ *  @version 1.0
+ */
 class Menadzer extends BaseController
 {
+
+      /**
+     * Funkcija prikaz - sluzi za prikazivanje stranice sa nepromenljivim(header,sidebar,right,footer) i promenljivim delovima (right)
+     * Promenjivi deo se menja u zavisnosti od pozicije na sajtu
+     * 
+     * @param string $page - stranica na koju se odlazi
+     * @param string[] $data - podaci koji se prikazuju na stranici
+     */
     protected function prikaz($page, $data) {
         $data['controller']='Menadzer';
         $data['korisnik']=$this->session->get('korisnik');
@@ -18,11 +32,12 @@ class Menadzer extends BaseController
         echo view("sablon/footer.php");
     }
 
-
-
+     /** 
+     * Metoda index - podrazumevana metoda za prikaz menadzeru
+     */
     public function index() {
         echo view('sablon/header_menadzer.php');
-         echo view('sablon/sidebar.php');
+        echo view('sablon/sidebar.php');
         echo view ("sablon/center.php");
         echo view('sablon/footer.php');
     }
@@ -92,7 +107,13 @@ public function odobriKorisnika($IdK){
 
 
 
-   #Filip Kojic 0285/2018
+     /**
+	   * Funkcija koja se poziva pri odlasku na stranicu "Ukloni Korisnika" i koja ih prikazuje
+     * 
+     * @param string $poruka - poruka koja se prikazuje na stranici
+     * 
+     * @author Filip Kojic 0285/2018
+     */
    public function ukloni($poruka=null){
     $korisnikModel = new KorisnikModel();
        $korisnici = $korisnikModel->nadjiKorisnike();
@@ -101,7 +122,13 @@ public function odobriKorisnika($IdK){
             return $this->prikaz('ukloniKorisnika', ['poruka'=>'Trenutno nema korisnika za prikaz!','korisnici'=>$korisnici]);
 }
 
- #Filip Kojic 0285/2018
+  /**
+	   * Funkcija koja se poziva pri kliku na dugme "Ukloni" i koja obradjuje zahtev za uklanjanje
+     * 
+     * @param int $IdK  - id korisnika u tabeli "Korisnik" koji se uklanja iz baze
+     * 
+     * @author Filip Kojic 0285/2018
+     */
   public function ukloniKorisnika($IdK){
     $korisnikModel = new KorisnikModel();
       $korisnik = $korisnikModel->where('IdK',$IdK)->first();

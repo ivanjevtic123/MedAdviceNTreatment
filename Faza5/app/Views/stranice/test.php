@@ -1,4 +1,8 @@
-<!--Filip Kojic 0285/2018 -->
+<?php
+/**
+ * @author Filip Kojic 0285/2018
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

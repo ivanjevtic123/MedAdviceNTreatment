@@ -8,33 +8,56 @@ namespace App\Controllers;
 use App\Models\KorisnikModel;
 use App\Models\UslugaModel;
 
+/**
+ * Klasa Gost - implementira metode kontrolera koje sluzi za funkcionalnosti gosta 
+ * 
+ *  @version 1.0
+ */
+
 class Gost extends BaseController
 {
-     protected $data = [];
 
+     /**
+     * Funkcija prikaz - sluzi za prikazivanje stranice sa nepromenljivim(header,sidebar,right,footer) i promenljivim delovima (right)
+     * Promenjivi deo se menja u zavisnosti od pozicije na sajtu
+     * 
+     * @param string $page - stranica na koju se odlazi
+     * @param string[] $data - podaci koji se prikazuju na stranici
+     */
 	    protected function prikaz($page, $data) {
         $data['controller']='Gost';
         echo view("sablon/header_gost.php");
-		    echo view("sablon/sidebar.php");
+		echo view("sablon/sidebar.php");
         echo view ("stranice/$page", $data);
         echo view("sablon/footer.php");
     }
 
+
+     /** 
+     * Metoda index - podrazumevana metoda za prikaz gostu
+     */
 	 public function index() {
       echo view('sablon/header_gost.php');
-	 	  echo view('sablon/sidebar.php');
+	  echo view('sablon/sidebar.php');
       echo view ("sablon/center.php");
       echo view('sablon/footer.php');
 
        // echo view('stranice/test.php');
      }
    
-    #Filip Kojic 0285/2018
+    /**
+	 *  Funkcija koja se poziva pri odlasku na login deo stranice
+	 * @param string $poruka - poruka koja se prikazuje na stranici
+     * @author Filip Kojic 0285/2018
+     */
 	public function login($poruka=null){
         $this->prikaz('login', ['poruka'=>$poruka]);
     }
 
-     #Filip Kojic 0285/2018
+     /**
+	 *  Funkcija koja se poziva pri pritisku na dugme "Uloguj se" koja odvodi korisnika na njegovu stranicu ili ispisuje gresku
+     * @author Filip Kojic 0285/2018
+     */
 	public function loginSubmit(){
         if(!$this->validate(['username'=>'required','password'=>'required'])){
              	return $this->login("Unesite podatke!");
@@ -60,6 +83,8 @@ class Gost extends BaseController
 
               //  return $this->login("Idemo!");
         }
+
+        
 		
 		#Ivan Jevtic 0550/2018
         public function register($poruka = null) {

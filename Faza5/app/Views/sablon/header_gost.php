@@ -1,6 +1,8 @@
-<!-- Ivan Jevtic 0550/2018
-     Filip Kojic 0285/2018
-     Filip Zaric 0345/2018 -->
+<?php
+/**
+ * @author Ivan Jevtic 0550/2018
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

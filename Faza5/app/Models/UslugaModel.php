@@ -1,8 +1,16 @@
 <?php namespace App\Models;
 
+ #Ivan Jevtic 0550/2018
+
 use CodeIgniter\Model;
 use App\Models\UslugaModel;
 
+
+/** 
+ * Klasa UslugaModel - sluzi za rad sa podacima iz tabele "Usluga" u bazi podataka
+ * 
+ * @version 1.0
+ */
 class UslugaModel extends Model
 {
     protected $table = 'usluga';

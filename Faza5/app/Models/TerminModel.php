@@ -1,7 +1,15 @@
 <?php namespace App\Models;
 
+ #Filip Kojic 0285/2018
+
 use CodeIgniter\Model;
 use App\Models\TerminModel;
+
+/** 
+ * Klasa TerminModel - sluzi za rad sa podacima iz tabele "Termin" u bazi podataka
+ * 
+ * @version 1.0
+ */
 
 class TerminModel extends Model
 {
@@ -10,7 +18,15 @@ class TerminModel extends Model
         protected $returnType = 'object';
         protected $allowedFields = ['IdPac', 'IdPru', 'DatumIVreme', 'Ostvaren', 'TekstNalaz', 'Snimak'];
 
-        #Filip Kojic 0285/2018
+     /**
+	 * Funkcija koja sluzi za trazenje nalaza za pacijenta sa prosledjenim id-jem
+     * 
+     * @param int $IdPac - id pacijenta u tabeli "Termin" ciji se nalazi traze
+     * 
+     *  @return Object[]
+     * 
+     * @author Filip Kojic 0285/2018
+     */
         public function nadjiNalaze($IdPac){
             $db = \Config\Database::connect();
             $builder = $db->table('termin');

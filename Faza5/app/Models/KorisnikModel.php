@@ -1,10 +1,19 @@
 <?php namespace App\Models;
 
+    #Filip Kojic 0285/2018
+    #Filip Zaric 0345/2018
+
 use CodeIgniter\Model;
 use App\Models\KorisnikModel;
 
+/** 
+ * Klasa KorisnikModel - sluzi za rad sa podacima iz tabele "Korisnik" u bazi podataka
+ * 
+ * @version 1.0
+ */
+
 class KorisnikModel extends Model
-{
+{       
         protected $table      = 'korisnik';
         protected $primaryKey = 'IdK';
         protected $returnType = 'object';
@@ -12,7 +21,13 @@ class KorisnikModel extends Model
     ,'NaCekanju','JeObrisan',  'KrvnaGrupa','IstorijaBolesti','HronicneBolesti','ZarazneBolesti','LekoviAlergije',
      'HiruskiZahvati','Rezime','Slika','ZbirOcena','BrojOcena','Uloga'];
     
-    #Filip Kojic 0285/2018
+    /**
+	   * Funkcija koja sluzi za uklanjanje korisnika iz baze
+     * 
+     * @param int $IdK - id korisnika u tabeli "Korisnik" koji se uklanja iz baze
+     * 
+     * @author Filip Kojic 0285/2018
+     */
      public function obrisiKorisnika($IdK){
          $data = [
            'JeObrisan' => 1
@@ -27,7 +42,13 @@ class KorisnikModel extends Model
          $this->update($IdK,$data);
      }
 
-     #Filip Kojic 0285/2018
+     /**
+	   * Funkcija koja sluzi za nadje korisnike iz baze
+     * 
+     * @return Object[]
+     * 
+     * @author Filip Kojic 0285/2018
+     */
      public function nadjiKorisnike(){
      return $this->where('JeObrisan',0)->where('NaCekanju',0)->orderBy('KorisnickoIme','ASC')->findAll();
   }
@@ -36,7 +57,15 @@ class KorisnikModel extends Model
     return $this->where('JeObrisan',0)->where('NaCekanju',1)->orderBy('KorisnickoIme','ASC')->findAll();
   }
 
-     #Filip Kojic 0285/2018
+     /**
+	   * Funkcija koja sluzi za nadje lekare iz baze za pacijenta sa prosledjenim id-jem
+     * 
+     * @param int $IdK  - id pacijenta u tabeli "Korisnik" ciji se lekari traze
+     * 
+     * @return Object[]
+     * 
+     * @author Filip Kojic 0285/2018
+     */
      public function nadjiLekare($IdK){
        $db = \Config\Database::connect();
          $builder = $db->table('korisnik');
@@ -48,7 +77,14 @@ class KorisnikModel extends Model
          return $result;
      }
  
-   #Filip Kojic 0285/2018
+   /**
+	   * Funkcija koja sluzi da uveca zbir i broj ocena lekaru koji je ocenjen
+     * 
+     * @param int $IdK  - id lekara u tabeli "Korisnik" koji je ocenjen
+     * @param int $ocenaVrednost  - vrednost za koju se uvecava kolona "ZbirOcena" u tabeli "Korisnik"
+     * 
+     * @author Filip Kojic 0285/2018
+     */
      public function uvecajZbirIBrojOcena($IdK,$ocenaVrednost){
         $red = $this->where('IdK',$IdK)->first();
         $zbir = $red->ZbirOcena;
@@ -62,7 +98,15 @@ class KorisnikModel extends Model
              $this->update($IdK,$data);
      }
 
-      #Filip Kojic 0285/2018
+      /**
+	   * Funkcija koja sluzi za nadje pacijente iz baze za lekara sa prosledjenim id-jem
+     * 
+     * @param int $IdK  - id lekara u tabeli "Korisnik" ciji se pacijenti traze
+     * 
+     *  @return Object[]
+     * 
+     * @author Filip Kojic 0285/2018
+     */
       public function nadjiPacijente($IdK){
         $db = \Config\Database::connect();
           $builder = $db->table('korisnik');

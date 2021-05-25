@@ -22,6 +22,13 @@ use Psr\Log\LoggerInterface;
  * For security be sure to declare any new methods as protected or private.
  */
 
+/*
+ * Klasa BaseController - sluzi za implementaciju metoda koje su zajednicke za sve korisnike
+ * 
+ * @version 1.0
+ */
+
+
 class BaseController extends Controller
 {
 	/**
@@ -53,11 +60,17 @@ class BaseController extends Controller
 		$this->db = \Config\Database::connect();
 	}
 
-	 #Filip Kojic 0285/2018
+	  /**
+	 *  Funkcija za odjavljivanje ulogovanog korisnika, vraca korisnika na pocetnu stranicu gosta
+	 * 
+     * @author Filip Kojic 0285/2018
+     */
 	public function logout(){
         $this->session->destroy();
-        return redirect()->to(site_url('/'));
+        return redirect()->to(site_url('Gost'));
     }
+
+
 	#Filip Zaric 0345/2018
 	public function promenaLozinke($poruka=null,$vrsta=0){
         

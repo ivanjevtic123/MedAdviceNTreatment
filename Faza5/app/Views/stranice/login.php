@@ -1,4 +1,8 @@
-<!--Filip Kojic 0285/2018 -->
+<?php
+/**
+ * @author Filip Kojic 0285/2018
+ */
+?>
 <div class col-lg-10 col-md-10 right>
              <div class = "container right" style = "margin-left: 200px">
                 <form name="loginform"  action="<?= site_url("Gost/loginSubmit") ?>" method="post">
