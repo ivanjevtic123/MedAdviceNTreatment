@@ -96,7 +96,9 @@ public function odobriKorisnika($IdK){
    public function ukloni($poruka=null){
     $korisnikModel = new KorisnikModel();
        $korisnici = $korisnikModel->nadjiKorisnike();
-          $this->prikaz('ukloniKorisnika', ['poruka'=>$poruka,'korisnici'=>$korisnici]);
+       if($korisnici != null)
+          return $this->prikaz('ukloniKorisnika', ['poruka'=>$poruka,'korisnici'=>$korisnici]);
+            return $this->prikaz('ukloniKorisnika', ['poruka'=>'Trenutno nema korisnika za prikaz!','korisnici'=>$korisnici]);
 }
 
  #Filip Kojic 0285/2018

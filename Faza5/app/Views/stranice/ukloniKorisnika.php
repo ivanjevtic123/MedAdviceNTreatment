@@ -1,6 +1,7 @@
      <!--Filip Kojic 0285/2018-->
         <div class="col-lg-8 col-md-8 right">
           <br>
+          <?php if($korisnici != null) {?>
         <table class="table table-striped">
             <th>Korisničko ime</th>
             <th>JMBG</th>
@@ -19,9 +20,11 @@
                 echo '</td>';
             }
         }
-            ?>
+      ?>
          </table>
-         <font color='green'><?php if(isset($poruka)) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
+         <?php }?>
+         <font color='green'><?php if(isset($poruka) && strcmp($poruka,'Uspesno ste uklonili korisnika!') == 0) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
+         <font color='red'><?php if(isset($poruka) && strcmp($poruka,'Trenutno nema korisnika za prikaz!') == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
      <br><br>
    </div>
    </div>

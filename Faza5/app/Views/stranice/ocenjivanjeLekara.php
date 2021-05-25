@@ -1,5 +1,6 @@
 <!--Filip Kojic 0285/2018 -->
 <div class="col-lg-8 col-md-8 right">
+    <?php if($lekari != null) {?> 
             <table class="table table-striped">
                 <th>Ime i prezime</th>
                 <th>Broj dozvoljenih ocenjivanja</th>
@@ -38,8 +39,9 @@
     
             ?>
          </table>
+         <?php }?>
          <font color='green'><?php if(isset($poruka) && strcmp($poruka ,"Uspesno ste ocenili lekara!") == 0 ) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
          <font color='red'><?php if(isset($poruka) && strcmp($poruka ,"Ne mozete vise ocenjivati lekara!") == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
-
+         <font color='red'><?php if(isset($poruka) && strcmp($poruka ,'Trenutno nema lekara za prikaz!') == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
             </div>
         </div>

@@ -32,7 +32,9 @@ class Pacijent extends BaseController
     $pacijent = $this->session->get('korisnik');
     $korisnikModel = new KorisnikModel();
       $lekari = $korisnikModel->nadjiLekare($pacijent->IdK);
-         $this->prikaz('ocenjivanjeLekara.php', ['poruka'=>$poruka,'lekari'=>$lekari]);
+      if($lekari != null)
+         return $this->prikaz('ocenjivanjeLekara.php', ['poruka'=>$poruka,'lekari'=>$lekari]);
+         return $this->prikaz('ocenjivanjeLekara.php', ['poruka'=>'Trenutno nema lekara za prikaz!','lekari'=>$lekari]);
 }
 
     #Filip Kojic 0285/2018
