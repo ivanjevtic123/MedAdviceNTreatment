@@ -51,7 +51,10 @@
                     <br><br>
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-striped" cellpadding="20px">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-secondary" id="prikaziNalaze">Nalazi</button>
+                            <br><br><br>
+                            <table class="table table-striped" cellpadding="20px" id="tableNalazi">
                                 <tr>
                                 <th>Datum</th>
                                 <th>Vreme</th>
@@ -83,7 +86,7 @@
                                         }
                                    }
                                   ?>
-                        </table>
+                            </table>
                         </div>
                     </div>
                     <br><br><br><br>
