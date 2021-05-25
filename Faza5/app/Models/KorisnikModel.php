@@ -61,4 +61,16 @@ class KorisnikModel extends Model
              ];
              $this->update($IdK,$data);
      }
+
+      #Filip Kojic 0285/2018
+      public function nadjiPacijente($IdK){
+        $db = \Config\Database::connect();
+          $builder = $db->table('korisnik');
+          $builder->select('*');
+          $builder->join('lecio', 'lecio.IdPac = korisnik.Idk', 'inner');
+          $builder->where('IdLek', $IdK)->where('JeObrisan',0);
+          $query = $builder->get();
+          $result = $query->getResult();
+          return $result;
+      }
 }

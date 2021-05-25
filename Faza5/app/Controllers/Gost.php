@@ -41,9 +41,9 @@ class Gost extends BaseController
         }
                
 				$korisnikModel = new KorisnikModel();
-				$korisnik = $korisnikModel->where('KorisnickoIme',$this->request->getVar('username'))->where('NaCekanju',0)->first();
-				if($korisnik==null){
-					return $this->login("Korisnik ne postoji");
+				$korisnik = $korisnikModel->where('KorisnickoIme',$this->request->getVar('username'))->where('NaCekanju',0)->where('JeObrisan',0)->first();
+				if($korisnik==null || strcmp($korisnik->KorisnickoIme,$this->request->getVar('username')) != 0){
+					return $this->login("Korisnik ne postoji!");
 				}
 				if($korisnik->Lozinka!=$this->request->getVar('password')){
 					return $this->login("Pogresna lozinka!");

@@ -6,7 +6,7 @@ use App\Models\LecioModel;
 class LecioModel extends Model
 {
         protected $table      = 'lecio';
-        protected $primaryKey = 'IdL';
+        protected $primaryKey = 'IdLec';
         protected $returnType = 'object';
         protected $allowedFields = ['IdLek','IdPac','PreostaloOcena'];
     
@@ -21,14 +21,14 @@ class LecioModel extends Model
         #Filip Kojic 0285/2018
         public function dekrementriajPreostaloOcena($IdPac,$IdLek){
            $red = $this->where('IdPac',$IdPac)->where('IdLek',$IdLek)->first();
-           $IdL = $red->IdL;
+           $IdLec = $red->IdLec;
            $broj = $red->PreostaloOcena;
            $broj--;
          $data = [
             'PreostaloOcena' => $broj
           ];
 
-         $this->update($IdL,$data);
+         $this->update($IdLec,$data);
         }
 
 

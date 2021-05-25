@@ -13,7 +13,6 @@
                 <button type="submit" class="btn btn-secondary">Uloguj se</button>
                 </form>
                 <font color='red'><?php if(isset($poruka)) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
-                <font color='red'> <?php if(!empty($errors['password'])) echo $errors['password'];?></font></td>
              </div>
            </div>
         </div>
