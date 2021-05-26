@@ -1,9 +1,9 @@
 <!-- Ivan Jevtic 0550/2018 -->
 <div class="col-lg-8 col-md-8 right">
     <div class='offset-sm-3 col-sm-4 text-center'>
-        <form name="registerForm" action="<?= site_url("Gost/registerSubmit") ?>" method="post">
+        <form name="registerForm" action="<?= site_url("Gost/registerSubmit") ?>" method="post" enctype= "multipart/form-data">
             <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REGISTRACIJA</h2>
-            <table class="table">
+            <table class="table" id="registerTable">
                 <tr>
                     <td>Ime:</td>
                     <td>
@@ -61,7 +61,7 @@
                 <tr>
                     <td>Pol:</td>
                     <td>
-                        <input type="radio" id="M" name="gender" value="M">
+                        <input type="radio" id="Man" name="gender" value="M">
                         <label for="M">Muški</label>&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" id="Z" name="gender" value="Z">
                         <label for="Z">Ženski</label>
@@ -89,8 +89,7 @@
                         <input type="radio" id="M" name="category" value="M">
                         <label for="M">Menadžer</label>
                     </td>
-                </tr>
-                <tr>
+                <tr class="sakrivanje">
                     <td>Specijalnost(lekar):</td>
                     <td>
                         <!-- multiple sam mogao-->
@@ -98,24 +97,24 @@
                         <?php
                             foreach($usluge as $usluga) {
                                 if($usluga != null){
-                                    echo "<option>{$usluga->Naziv}</option>";
+                                    echo "<option name='{$usluga->Naziv}'>{$usluga->Naziv}</option>";
                                 }
                             }
                         ?>
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <tr class="sakrivanje">
                     <td>Rezime(lekar):</td>
                     <td>
                         <textarea id="resume" name="resume" rows="4" cols="50" placeholder="Rezime..." value="<?= set_value('resume') ?>"></textarea>
                     </td>
                 </tr>
-                <tr>
+                <tr class="sakrivanje">
                     <td>Slika(lekar):</td>
                     <td>
                         <!-- <input type="file" id="img" name="img" accept="image/*"> -->
-                        <input type="text" name="img" placeholder="Putanja slike..." value="<?= set_value('img') ?>">
+                        <input type="file" id="img" name="img">
                     </td>
                 </tr>
                 <tr>
@@ -123,6 +122,8 @@
                         <button type="submit" class="btn btn-secondary">Dodaj</button>
                     </td>
                 </tr>
+                </tr>
+                
             </table>
         </form>
         <font color='red'><?php if(isset($poruka)) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font>

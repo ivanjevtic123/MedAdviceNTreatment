@@ -7,6 +7,7 @@
 namespace App\Controllers;
 use App\Models\KorisnikModel;
 use App\Models\UslugaModel;
+use App\Models\PruzaModel;
 
 /**
  * Klasa Gost - implementira metode kontrolera koje sluzi za funkcionalnosti gosta 
@@ -85,7 +86,6 @@ class Gost extends BaseController
         }
 
         
-		
 		#Ivan Jevtic 0550/2018
         public function register($poruka = null) {
             $uslugaModel = new UslugaModel();
@@ -95,57 +95,57 @@ class Gost extends BaseController
 
         #Ivan Jevtic 0550/2018
         public function registerSubmit() {
-            if(!$this->validate(['name'=>'required'])){
+            if(!$this->validate(['name'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Ime!");
             }
-            if(!$this->validate(['surname'=>'required'])){
+            if(!$this->validate(['surname'=>'required|min_length[1]|max_length[50]'])){
               return $this->register("Unesite Prezime!");
             }
 
-            if(!$this->validate(['username'=>'required'])){
+            if(!$this->validate(['username'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Korisničko ime!");
             }
 
-            if(!$this->validate(['mail'=>'required'])){
+            if(!$this->validate(['mail'=>'required|valid_email|min_length[3]|max_length[50]'])){
                 return $this->register("Unesite E-poštu!");
             }
             if(!$this->validate(['dateOfBirth'=>'required'])){
                 return $this->register("Unesite Datum rođenja!");
             }
-            if(!$this->validate(['placeOfBirth'=>'required'])){
+            if(!$this->validate(['placeOfBirth'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Mesto rođenja!");
             }
-            if(!$this->validate(['placeOfLiving'=>'required'])){
+            if(!$this->validate(['placeOfLiving'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Mesto prebivalista!");
             }
-            if(!$this->validate(['adressOfLiving'=>'required'])){
+            if(!$this->validate(['adressOfLiving'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Adresu prebivalista!");
             }
-            if(!$this->validate(['jmbg'=>'required'])){
+            if(!$this->validate(['jmbg'=>'required|min_length[13]|max_length[13]'])){
                 return $this->register("Unesite JMBG!");
             }
             if(!$this->validate(['gender'=>'required'])){
                 return $this->register("Izaberite Pol!");
             }
-            if(!$this->validate(['password'=>'required'])){
+            if(!$this->validate(['password'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Lozinku!");
             }
-            if(!$this->validate(['passAgain'=>'required'])){
+            if(!$this->validate(['passAgain'=>'required|min_length[1]|max_length[50]'])){
                 return $this->register("Unesite Potvdu lozinke!");
             }
-            // if('password' != 'passAgain') {
-            //     return $this->register("Lozinka i Potvrda lozinke moraju biti iste!");
-            // }
             if(!$this->validate(['category'=>'required'])){
                 return $this->register("Izaberite kategoriju!");
             }
-            // if(!$this->validate(['speciality'=>'required'])){
-            //     return $this->register("Izaberite specijalnost!");
-            // }
-            // if(!$this->validate(['resume'=>'required'])){
-            //     return $this->register("Unesite Rezime!");
-            // }
-            // if(!$this->validate(['img'=>'required'])){
+
+            //provera za lekara:
+            $vrsta = $this->request->getVar('category');
+            if((!$this->validate(['speciality'=>'required'])) && ($vrsta == 'L')){
+                return $this->register("Izaberite specijalnost!");
+            }
+            if((!$this->validate(['resume'=>'required'])) && ($vrsta == 'L')){
+                return $this->register("Unesite Rezime!");
+            }
+            // if((!$this->validate(['img'=>'required'])) && ($vrsta == 'L')){
             //     return $this->register("Unesite Putanju slike!");
             // }
 
@@ -161,6 +161,65 @@ class Gost extends BaseController
                 
             }
 
+            $file = $_FILES['img'];
+            $fileName = $_FILES['img']['name'];
+            $fileTmpName = $_FILES['img']['tmp_name'];
+            $fileSize = $_FILES['img']['size'];
+            $fileError = $_FILES['img']['error'];
+            $fileType = $_FILES['img']['type'];
+            $fileExt = explode('.',$fileName);
+            $fileActualExtension = strtolower(end($fileExt));
+
+            $allowed = array('jpg','png','jpeg','jfif');
+
+            if(!in_array( $fileActualExtension,$allowed))
+            return $this->register("Fajl koji ste izabrali nije slika!");
+
+            if(!($fileError===0))
+            return $this->register("Greska pri postavljanju fajla!");
+
+            if($fileSize > 1000000)
+            return $this->register("Preveliki fajl!");
+
+            $fileNameNew = uniqid('',true)."."."$fileActualExtension";
+            $fileDestination = "web/".$fileNameNew;
+
+
+            move_uploaded_file($fileTmpName,$fileDestination);
+            $path = "/web/".$fileNameNew;
+            
+            $zbir = 0;
+            $broj = 0;
+
+            //$vrsta = $this->request->getVar('category');
+
+            $spec = $this->request->getVar('speciality');
+            switch ($spec) {
+                case "Kardiologija":
+                    $uslugaVrednost = "Kardiologija";break;
+                case "Radiologija":
+                    $uslugaVrednost = "Radiologija"; break;
+                case "Dermatologija":
+                    $uslugaVrednost = "Dermatologija"; break;
+                case "Onkologija":
+                    $uslugaVrednost = "Onkologija"; break;
+                case "Anesteziologija":
+                    $uslugaVrednost = "Anesteziologija"; break;
+                default:$ocenaVrednost = null; break;
+            }
+
+            
+            $rezime = $this->request->getVar('resume');
+
+            if($vrsta == 'P' || $vrsta == 'M') {
+                $zbir = null;
+                $broj = null;
+                $path = null;
+                $uslugaVrednost = null;
+                $rezime = null;
+            }
+            //$uslugaVrednost = "Radiologija";
+            
             $korisnikModel->save([
                 'Ime' => $this->request->getVar('name'),
                 'Prezime' => $this->request->getVar('surname'),
@@ -173,17 +232,29 @@ class Gost extends BaseController
                 'AdresaPrebivalista' => $this->request->getVar('adressOfLiving'),
                 'JMBG'=> $this->request->getVar('jmbg'),
                 'Pol' => $this->request->getVar('gender'),
-                'Rezime' => $this->request->getVar('resume'),
-                'Slika' => $this->request->getVar('img'),
-                'ZbirOcena' => 0,
-                'BrojOcena' => 0,
+                'Rezime' => $rezime,
+                'Slika' => $path,
+                'ZbirOcena' => $zbir,
+                'BrojOcena' => $broj,
                 'Uloga' => $this->request->getVar('category'),
-                'Specijalnost' => $this->request->getVar('speciality'),
+                'Specijalnost' => $uslugaVrednost,
             ]);
 
-            /*$PruzaModel->save([
-
-            ]);*/
+            if($this->request->getVar('category') == "L"){
+                $uslugamodel = new UslugaModel();
+                $redU = $uslugamodel->where('Naziv', $uslugaVrednost)->first();
+                $idU = $redU->IdU;
+                $korIme = $this->request->getVar('username');
+                $korisnikModel = new KorisnikModel();
+                $red = $korisnikModel->where('KorisnickoIme', $korIme)->first();
+                $idLek = $red->IdK;
+                $pruzaModel = new PruzaModel();
+                $podaci = [
+                    'IdU' => $idU,
+                    'IdLek'=> $idLek,
+                ]; 
+                $pruzaModel->save($podaci);
+            }
 
             return redirect()->to(site_url('Gost'));
         }
