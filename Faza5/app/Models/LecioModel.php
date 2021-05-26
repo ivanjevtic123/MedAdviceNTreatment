@@ -54,6 +54,29 @@ class LecioModel extends Model
 
          $this->update($IdLec,$data);
         }
+		
+		#Ivan Jevtic 0550/2018
+		public function postojiLecio($IdPac, $IdLek) {
+			$red = $this->where('IdPac',$IdPac)->where('IdLek',$IdLek)->first();
+			if($red != null) return true;
+			else return false;
+		}
+
+		#Ivan Jevtic 0550/2018
+		public function inkrementirajPreostaloOcena($IdPac,$IdLek){
+			 $red = $this->where('IdPac',$IdPac)->where('IdLek',$IdLek)->first();
+			 $IdLec = $red->IdLec;
+			 $broj = $red->PreostaloOcena;
+			 $broj++;
+			 $data = [
+				'PreostaloOcena' => $broj
+			 ];
+
+			 $this->update($IdLec,$data);
+		}
+		
+		
+		
 
 
 }

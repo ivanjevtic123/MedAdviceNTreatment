@@ -81,5 +81,84 @@ class Lekar extends BaseController
             $nalaz = $terminModel->where('IdT',$IdT)->first();
             $this->prikaz('nalaz.php', ['nalaz' => $nalaz]);
     }
+	
+	#Ivan Jevtic 0550/2018
+    public function addingMedResults($IdPac ,$poruka = null) {
+        $korisnikModel = new KorisnikModel();
+        $terminModel = new TerminModel();
+        $pacijent = $korisnikModel->where('IdK',$IdPac)->first();
+    
+        $termini = $terminModel->getNeostvareniTermini($IdPac);
+        $this->prikaz('addingMedResults.php', ['poruka'=>$poruka, 'pacijent' => $pacijent, 'termini' => $termini]);
+        
+    }
+    
+    #Ivan Jevtic 0550/2018
+    public function addingMedResultsSubmit($IdPac) {
+        if(!$this->validate(['dateNTime'=>'required'])){
+            return $this->addingMedResults($IdPac, "Izaberite Datum i Vreme termina!");//dodaj 1. arg
+        }
+        if(!$this->validate(['resultText'=>'required'])){
+            return $this->addingMedResults($IdPac, "Unesite Tekst nalaza!");
+        }
+        // if(!$this->validate(['imgMed'=>'required'])){
+        //     return $this->addingMedResults($IdPac, "Unesite Putanju snimka!");
+        // }
+//****************************
+        $file = $_FILES['imgMed'];
+        $fileName = $_FILES['imgMed']['name'];
+        $fileTmpName = $_FILES['imgMed']['tmp_name'];
+        $fileSize = $_FILES['imgMed']['size'];
+        $fileError = $_FILES['imgMed']['error'];
+        $fileType = $_FILES['imgMed']['type'];
+        $fileExt = explode('.',$fileName);
+        $fileActualExtension = strtolower(end($fileExt));
+
+        $allowed = array('jpg','png','jpeg','jfif');
+
+        if(!in_array( $fileActualExtension,$allowed))
+        return $this->addingMedResults("Fajl koji ste izabrali nije slika!");
+
+        if(!($fileError===0))
+        return $this->addingMedResults("Greska pri postavljanju fajla!");
+
+        if($fileSize > 1000000)
+        return $this->addingMedResults("Preveliki fajl!");
+
+        $fileNameNew = uniqid('',true)."."."$fileActualExtension";
+        $fileDestination = "web/".$fileNameNew;
+
+
+        move_uploaded_file($fileTmpName,$fileDestination);
+        $path = "/web/".$fileNameNew;
+//****************************
+
+        $terminModel = new TerminModel();
+        $time = $this->request->getVar('dateNTime');
+        $red = $terminModel->where('IdPac', $IdPac)->where('DatumIVreme', $time)->first();
+    
+        $tekst = $this->request->getVar('resultText');
+        // $snimak = $this->request->getVar('imgMed');
+        // if($snimak == '') $snimak = null;
+    
+        $terminModel->postaviSnimakINalaz($red,$tekst,$path);
+
+        $lecioModel = new LecioModel();
+
+        $lekar = $this->session->get('korisnik');
+        //prvi put Lekar i Pacijent saradjuju => insert u Lecio
+        if($lecioModel->postojiLecio($IdPac, $lekar->IdK) == false) {
+            $lecioModel->save([
+                'IdPac' => $this->request->getVar('name'),
+                'IdLek' => $this->request->getVar('surname'),
+            ]);
+        }
+        $lecioModel->inkrementirajPreostaloOcena($IdPac, $lekar->IdK);
+        return $this->prikaziPacijente();
+    }
+	
+	
+	
+	
 
 }
