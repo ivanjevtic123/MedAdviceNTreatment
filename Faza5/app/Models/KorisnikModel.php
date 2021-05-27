@@ -34,7 +34,16 @@ class KorisnikModel extends Model
          ];
         $this->update($IdK,$data);
      }
-       #Filip Zaric 0345/2018
+               /**
+	   * Funkcija koja sluzi za azuriranje stanja korisnika u bazi,odnosno korisnik zaista postaje prepoznat
+     * od platforme kao registrovani korisnik.
+     * 
+     * 
+     * @param int $IdK - id korisnika u tabeli "Korisnik" koji postaje prepoznat
+     * od platforme kao registrovani korisnik. 
+     * 
+     * @author Filip Zaric 0345/2018
+     */
      public function odobriKorisnika($IdK){
          $data=[
              'NaCekanju' =>0
@@ -52,7 +61,15 @@ class KorisnikModel extends Model
      public function nadjiKorisnike(){
      return $this->where('JeObrisan',0)->where('NaCekanju',0)->orderBy('KorisnickoIme','ASC')->findAll();
   }
-  #Filip Zaric 0345/2018
+            /**
+	   * Funkcija koja sluzi za dohvatanje iz baze korisnika za koje menadzer jos uvek nije odlucio da li mogu
+     * postati registrovani korisnici platforme.
+     * 
+     * 
+     * @return Korisnik[]
+     * 
+     * @author Filip Zaric 0345/2018
+     */
   public function korisniciCekaju(){
     return $this->where('JeObrisan',0)->where('NaCekanju',1)->orderBy('KorisnickoIme','ASC')->findAll();
   }

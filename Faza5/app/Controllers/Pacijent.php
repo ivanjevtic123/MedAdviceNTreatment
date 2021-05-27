@@ -103,12 +103,27 @@ class Pacijent extends BaseController
                   return $this->oceni("Uspesno ste ocenili lekara!");
                     
     }
+ /**
+	 *  Funkcija koja se poziva iz metode noviKarton  ako pri kliku na link "Prikaz kartona " u navabar-u  karton pacijenta
+     * je  već kreiran.
+     * 
+     * @author Filip Kojic 0285/2018
+     * @coauthor Filip Zaric 0345/2018
+     */
+    public function prikaziPacijenta(){
+        $pacijent = $this->session->get('korisnik');
+        $pacijenti=[];
+        array_push($pacijenti,$pacijent);
+              $this->prikaz('pacijenti.php', ['pacijenti'=>$pacijenti]);
+    }
 /**
- *  Funkcija koja se poziva pri kliku na dugme "Karton" na stranici "Moji pacijenti" i koja nalazi i prikazuje karton pacijenta
+ *  Funkcija koja se poziva pri kliku na dugme "Karton" na stranici "Pregled kartona" i koja nalazi i prikazuje karton pacijenta
  * 
- * @param int $IdK - Id pacijenta u tabeli "Korisnik" ciji se karton prikazuje
+ * @param int $IdK - parametar je redudantan ali je ostavljen kako prikaz ne bi morao da vodi računa da li poziva metodu
+ * kontrolera pacijent ili kontrolera lekar 
  * 
  * @author Filip Kojic 0285/2018
+ * @coauthor Filip Zaric 0345/2018
  */
     public function prikaziKarton($idk){
         $terminModel=new TerminModel();
@@ -135,7 +150,15 @@ class Pacijent extends BaseController
 
 
 
-     #Filip Zaric 0345/2018
+     /**
+ *  Funkcija koja se poziva pri kliku na link "Pregled kartona".Funkcija zove razlicite prikaze u zavisnosti od toga
+ * da li karton pacijenta već postoji u bazi.
+ * 
+ *  @param string $poruka-poruka koja se prosledjuje prikazu koji metoda pozove i koju prikaz(view) ispisuje  
+ *  @param int $vrsta-vrsta poruke koja se prosledjuje prikazu,takodje se promenljiva prosledjuje pogledu i na
+ * osnovu nje prikaz zna kojom bojom prikazuje poruku
+ *  @author Filip Zaric 0345/2018
+ */
     public function noviKarton($poruka=null,$vrsta=0){
         $korisnikTrenutni=$this->session->get('korisnik');
         if($korisnikTrenutni->KrvnaGrupa ==null ){
@@ -155,7 +178,16 @@ class Pacijent extends BaseController
 
      
     }
-    #Filip Zaric 0345/2018
+     /*   **
+ *  Funkcija koja se poziva pri predaji forme na stranici "Novi karton" i koja proverava ispravnost podataka
+ * predatih od strane korisnika putem forme.Funkcija nema povratnu vrednost vec na kraju izvrsavanja poziva metodu
+ * noviKarton.
+ * 
+ *  
+ *  
+ *
+ *  @author Filip Zaric 0345/2018
+ */
     public function noviKartonSubmit(){
         if(!$this->validate(['krvnaGrupa'=>'required|in_list[A-,A+,B-,B+,0+,0-,AB+,AB-]']))  return $this->noviKarton("Krvna grupa losa");
 
@@ -186,7 +218,17 @@ class Pacijent extends BaseController
            
 
     }
-    #Filip Zaric 0345/2018
+        /*   **
+ *  Funkcija koja se poziva pritiskom na dugme "Zakazi" pri pregledu profila doktora.Funkcija ne vraća povratnu
+ * vrednost već na kraju izvrsavanja poziva metodu koja prikazuje stranicu "zakazivanjeTermina".
+ * 
+ * @param int $lekar-identifikator lekara kod koga se zakazuje termin
+ * @param int $usluga-identifikator usluge za koju se zakazuje termin
+ *  
+ *  
+ *
+ *  @author Filip Zaric 0345/2018
+ */
     public function zakazi($lekar,$usluga){
         
         $terminModel=new TerminModel();
@@ -204,13 +246,31 @@ class Pacijent extends BaseController
        $this->zakazi_prikaz($vremena);
 
     }
-    #Filip Zaric 0345/2018
+            /*   **
+ *  Funkcija koja poziv prikaz stranice "zakazivanjeTermina".
+ *  @param string[] $podaci-podaci koji se prosledjuju stranici
+    @param string $poruka-poruka koja se prosledjuje prikazu koji metoda pozove i koju prikaz(view) ispisuje  
+ *  @param int $vrsta-vrsta poruke koja se prosledjuje prikazu,takodje se promenljiva prosledjuje pogledu i na
+ * osnovu nje prikaz zna kojom bojom prikazuje poruku
+ *  
+ *  
+ *
+ *  @author Filip Zaric 0345/2018
+ */
+
     public function zakazi_prikaz($podaci=null,$poruka=null,$vrsta=null){
         
         //$this->session->set('vremena',['2021-07-07 13:00:00']);
        $this->prikaz("zakazivanjeTermina",['poruka'=>$poruka,'vremena'=>$podaci,'vrsta'=>$vrsta]);
     }
-    #Filip Zaric 0345/2018
+       /*   **
+ *  Funkcija koja se poziva sa stranice "zakazivanjeTermina" prilikom predaje forme.Funkcija vrši
+ * ažuriranje baze i na kraju izvršavanja poziva metodu koja prikazuje stranicu "zakazivanjeTermina"/
+ *  
+ * @author Filip Zaric 0345/2018
+ */
+
+
     public function zakaziTerminSubmit(){
      $datum=$this->request->getVar("datumSubmit");
      $sat=$this->request->getVar("timeOfExam");

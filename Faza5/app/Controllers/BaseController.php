@@ -71,13 +71,29 @@ class BaseController extends Controller
     }
 
 
-	#Filip Zaric 0345/2018
+		/**
+ *  Funkcija koja prikazuje stranicu "promenaLozinke".
+ * 
+ *  @param string $poruka-poruka koja se prosledjuje prikazu koji metoda pozove i koju prikaz(view) ispisuje  
+ *  @param int $vrsta-vrsta poruke koja se prosledjuje prikazu,takodje se promenljiva prosledjuje pogledu i na
+ * osnovu nje prikaz zna kojom bojom prikazuje poruku
+ *  @author Filip Zaric 0345/2018
+ */
 	public function promenaLozinke($poruka=null,$vrsta=0){
         
         $this->prikaz('promenaLozinke', ['poruka'=>$poruka,'vrsta'=>$vrsta]);
      
     }
-	#Filip Zaric 0345/2018
+
+	/**
+ *  Funkcija koja se poziva predajom forme na stranici "promenaLozinke".Funkcija proverava korektnost 
+ * predatih podataka i na kraju izvrsavanja poziva metodu koja ponovo prikazuje stranicu "promenaLozinke" ali
+ * ovaj put sa odgovarajućom porukom.
+ * 
+ * 
+ *  @author Filip Zaric 0345/2018
+ */
+
     public function promenaLozinkeObrada(){
 
         if(!$this->validate(['staraLoz'=>'required','novaLoz1'=>'required','novaLoz2'=>'required'])){
@@ -111,7 +127,5 @@ class BaseController extends Controller
 
 
     }
-	public function LozPoc(){
-	return $this->promenaLozinkeObrada();
-	}
+	
 }

@@ -66,7 +66,13 @@ class TerminModel extends Model
             $id = $red->IdT;
             $this->update($id,$podaci);
         }
-       #Filip Zaric 0345/2018
+              /**
+ *  Funkcija dohvata zakazane  a jos uvek neostvarene termine pacijenta,odnosno njihove timestamp-ove.
+ * @param int $idPac-identifikator pacijenta za koga se timestampovi termina dohvataju
+ * 
+ * @return string[]
+ *  @author Filip Zaric 0345/2018
+ */
         public function dohvatiZauzeteTerminePacijenta($idPac){
             $db = \Config\Database::connect();
             $builder = $db->table('termin');
@@ -76,7 +82,15 @@ class TerminModel extends Model
             $result = $query->getResult();
             return $result;
         }
-          #Filip Zaric 0345/2018
+                            /**
+ *  Funkcija dohvata zakazane  a jos uvek neostvarene termine lekara koji pruza odredjenu uslugu,
+ * odnosno njihove timestamp-ove.
+ * @param int $idPru-identifikator u tabeli pruza za datu uslugu i datog lekara za koje se timestampovi termina dohvataju
+ * 
+ * @return string[]
+ *  @author Filip Zaric 0345/2018
+ */  
+
         public function dohvatiZauzeteTermineLekara($idPru){
             $db = \Config\Database::connect();
             $builder = $db->table('termin');
@@ -89,7 +103,14 @@ class TerminModel extends Model
         
            
         }
-        #Filip Zaric 0345/2018
+            /**
+        *  Funkcija dodaje zakazan termin u bazu.
+        * @param int $idpru-identifikator u tabeli pruza
+        * @param int $idpac-identifikator pacijenta koji zakazuje termin
+        * @param string $timestamp-timestamp,odnosno datum i cas termina koji je zakazan
+        * @return string[]
+        *  @author Filip Zaric 0345/2018
+        */
         public function dodajTermin($idpac,$idpru,$timestamp){
             $data = [
                 'IdPac' => $idpac,
