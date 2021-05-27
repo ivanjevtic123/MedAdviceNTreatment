@@ -5,7 +5,7 @@
             <?php 
             foreach($usluge as $usluga) {
                 if($usluga != null){
-                    echo "<tr><td><button style='width:500px' type='submit' class='btn btn-info'><a href='Gost/doctorsList/{$usluga->IdU}'>{$usluga->Naziv}</a></button></td></tr>";
+                    echo "<tr><td><button style='width:500px' type='submit' class='btn btn-info'><a href='doctorsList/{$usluga->IdU}'>{$usluga->Naziv}</a></button></td></tr>";
                 }
             }
             ?>
