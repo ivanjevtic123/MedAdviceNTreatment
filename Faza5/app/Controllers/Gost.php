@@ -260,11 +260,49 @@ class Gost extends BaseController
         }
 		
 		#Ivan Jevtic 0550/2018
-        public function services($poruka = null) {
-            $uslugaModel = new UslugaModel();
-            $usluge = $uslugaModel->getUsluge();
-            $this->prikaz('services', ['poruka'=>$poruka,'usluge'=>$usluge]);
-        }
+		public function services($poruka = null) {
+			$uslugaModel = new UslugaModel();
+			$usluge = $uslugaModel->getUsluge();
+			$this->prikaz('services', ['poruka'=>$poruka,'usluge'=>$usluge]);
+		}
+
+		#Ivan Jevtic 0550/2018
+		public function doctorsList($IdU) {
+			$korisnikModel = new KorisnikModel();
+			$doctors = $korisnikModel->nadjiLekareZaUslugu($IdU);
+			$this->prikaz('doctorsList', ['doctors'=>$doctors, 'IdU' => $IdU]);
+		}
+
+		#Ivan Jevtic 0550/2018
+		public function doctorProfile($IdDoc, $IdU, $cena) {
+			$korisnikModel = new KorisnikModel();
+			$doctor = $korisnikModel->where('IdK',$IdDoc)->first();
+			$this->prikaz('doctorProfile', ['IdDoc' => $IdDoc ,'doctor' => $doctor, 'IdU' => $IdU, 'cena' => $cena]);
+		}
+
+		#Ivan Jevtic 0550/2018
+		public function doctorsListSorted($IdU) {
+		  $korisnikModel = new KorisnikModel();
+
+		  $sort = $this->request->getVar('sort');
+		  switch ($sort) {
+			  case "descending":
+				  $sortiranje = 1;break;
+			  case "ascending":
+				  $sortiranje = 0; break;
+			  default:$sortiranje = null; break;
+		  }
+
+		  if($sortiranje == 1) {
+			$doctors = $korisnikModel->nadjiLekareZaUsluguSortirano($IdU, 1);
+			$this->prikaz('doctorsList', ['doctors'=>$doctors, 'IdU' => $IdU]);
+		  } else if($sortiranje == 0) {
+			$doctors = $korisnikModel->nadjiLekareZaUsluguSortirano($IdU, 0);
+			$this->prikaz('doctorsList', ['doctors'=>$doctors, 'IdU' => $IdU]);
+		  }
+		}
+		
+		
 		
     
 }

@@ -117,4 +117,44 @@ class KorisnikModel extends Model
           $result = $query->getResult();
           return $result;
       }
+	  
+		 #Ivan Jevtic 0550/2018
+		public function nadjiLekareZaUslugu($IdU) {
+			$db = \Config\Database::connect();
+			$builder = $db->table('korisnik'); 
+			$builder->select('*');
+
+			$builder->join('pruza', 'pruza.IdLek = korisnik.IdK', 'inner');
+			$builder->join('usluga', 'usluga.IdU = pruza.IdU', 'inner');
+			$builder->where('usluga.IdU', $IdU);
+			$query = $builder->get();
+			$result = $query->getResult();
+			return $result;
+		}
+
+		#Ivan Jevtic 0550/2018
+		public function nadjiLekareZaUsluguSortirano($IdU, $order) {
+		  $db = \Config\Database::connect();
+		  $builder = $db->table('korisnik'); 
+		  $builder->select('*');
+
+		  $builder->join('pruza', 'pruza.IdLek = korisnik.IdK', 'inner');
+		  $builder->join('usluga', 'usluga.IdU = pruza.IdU', 'inner');
+		  $builder->where('usluga.IdU', $IdU);
+		  if($order == 1) {
+			  $builder->orderBy('pruza.Cena', 'DESC');//SORT
+		  } else {
+			  $builder->orderBy('pruza.Cena', 'ASC');//SORT
+		  }
+		  $query = $builder->get();
+		  $result = $query->getResult();
+		  return $result;
+		}
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 }
