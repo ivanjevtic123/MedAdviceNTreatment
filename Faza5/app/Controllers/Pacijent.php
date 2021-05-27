@@ -7,7 +7,9 @@
 namespace App\Controllers;
 use App\Models\KorisnikModel;
 use App\Models\LecioModel;
-
+use App\Models\UslugaModel;
+use App\Models\TerminModel;
+use App\Models\PruzaModel;
 /**
  * Klasa Pacijent - implementira metode kontrolera koje sluzi za funkcionalnosti menadzera 
  * 
@@ -148,13 +150,44 @@ class Pacijent extends BaseController
 
     }
     #Filip Zaric 0345/2018
-    public function zakazi($poruka=null){
-      //  $this->prikaz()l
+    public function zakazi($lekar,$usluga){
+        
+        $terminModel=new TerminModel();
+       $pacijent=$this->session->get('korisnik');
+       $pruzaModel=new PruzaModel();
+       $pr=$pruzaModel->where('IdLek',$lekar)->where('IdU',$usluga)->findAll()[0];
+       //return $vremena=$terminModel-> dohvatiZauzeteTermineLekara(($pr->IdPru));
+     $vremena1=$terminModel-> dohvatiZauzeteTermineLekara(($pr->IdPru));
+     $vremena2=$terminModel-> dohvatiZauzeteTerminePacijenta(($pacijent->IdK));
+     //$this->session->set('vremena',$vremena);
+    
+    $this->session->set("IdPruzaZakazi",($pr->IdPru));
+    $vremena=array_merge($vremena1,$vremena2);
+    $this->session->set("vremena",$vremena);
+       $this->zakazi_prikaz($vremena);
+
     }
     #Filip Zaric 0345/2018
-    public function zakaziTermin($IdLek){
-       $this->zakazi();
-
+    public function zakazi_prikaz($podaci=null,$poruka=null,$vrsta=null){
+        
+        //$this->session->set('vremena',['2021-07-07 13:00:00']);
+       $this->prikaz("zakazivanjeTermina",['poruka'=>$poruka,'vremena'=>$podaci,'vrsta'=>$vrsta]);
+    }
+    #Filip Zaric 0345/2018
+    public function zakaziTerminSubmit(){
+     $datum=$this->request->getVar("datumSubmit");
+     $sat=$this->request->getVar("timeOfExam");
+     $stringSat="".$sat.":00:00";
+     $stringDatum="".$datum;
+     $timestamp=$stringDatum." ".$stringSat;
+     $terminModel=new TerminModel();
+     $pacijent=$this->session->get('korisnik');
+     $terminModel->dodajTermin($pacijent->IdK,$this->session->get("IdPruzaZakazi"),$timestamp);
+     $vremena=$this->session->get("vremena");
+     $vremena2=["DatumIVreme"=>$timestamp];
+     array_push($vremena,$vremena2);
+     $this->session->set("vremena",$vremena);
+     return $this->zakazi_prikaz($this->session->get("vremena"),"Uspesno ste zakazali termin",1);
     }
 
 

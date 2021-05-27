@@ -2,49 +2,66 @@
         <div class="col-lg-4 col-md-4 offset-2 right">
                <br>
                <br>
-<table class="table table-light table-striped" cellspacing="15px">
+     
+               <form action="<?= site_url("$controller/zakaziTerminSubmit") ?>" method="post" >
+<table class="table table-light table-striped" cellspacing="15px" >
     <tr>
+  <?php echo json_encode($vremena); ?>;
+   <script>var times = <?php echo json_encode($vremena); ?>; </script>
         <td>Datum termina:</td>
         <td>
-            <input type="date" id="dateOfExam">
+        <input   name="datumSubmit" id="dateExam" type="date" >
         </td>
         </tr>
         <tr>
         <td>Vreme termina:</td>
+    
         <td>
+        
+       
             <select name="timeOfExam" id="fromTimeOfExam">
-                <option value="1">1:00</option>
-                <option value="2">2:00</option>
-                <option value="3">3:00</option>
-                <option value="4">4:00</option>
-                <option value="5">5:00</option>
-                <option value="1">6:00</option>
-                <option value="2">7:00</option>
-                <option value="3">8:00</option>
-                <option value="4">9:00</option>
-                <option value="5">10:00</option>
-                <option value="1">11:00</option>
-                <option value="2">12:00</option>
-                <option value="3">13:00</option>
-                <option value="4">14:00</option>
-                <option value="5">15:00</option>
-                <option value="5">16:00</option>
-                <option value="5">17:00</option>
-                <option value="5">18:00</option>
-                <option value="5">19:00</option>
-                <option value="5">20:00</option>
-                <option value="5">21:00</option>
-                <option value="5">22:00</option>
-                <option value="5">23:00</option>
-                <option value="5">24:00</option>
+                <?php 
+              
+               
+                $moguci=[];
+                for($i=0;$i<2;$i++){
+                    for($j=0;$j<10;$j++){
+                    array_push($moguci,"$i$j");
+                    
+                    }  
+                }
+                array_push($moguci,"20");
+                array_push($moguci,"21");
+                array_push($moguci,"22");
+                array_push($moguci,"23");
+                foreach($moguci as $moguc){
+                   
+                        echo "<option> $moguc </option>";
+                    
+                }
+                
+                ?>
+                
               </select>
         </td>
     </tr>
     <tr>
-        <td colspan="2" align="center"> <button class="btn btn-secondary">Zakazi termin</button> </td>
+        <td colspan="2" align="center"> <input class="btn btn-secondary" type="submit" id="dugmeZakazi"value="Zakazi termin"></input>
+        <?php  
+                    if(isset($vrsta) && $vrsta==1){
+                        $color="green";
+
+                    }  else $color="red";
+                    ?>
+
+                        <?php if(isset($poruka)) echo " </br><font color=$color size = 5px>$poruka</font>"; ?>
+    
+    
+    </td>
         
     </tr>
 </table>
+</form>
 
 
 

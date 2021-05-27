@@ -66,6 +66,40 @@ class TerminModel extends Model
             $id = $red->IdT;
             $this->update($id,$podaci);
         }
+       #Filip Zaric 0345/2018
+        public function dohvatiZauzeteTerminePacijenta($idPac){
+            $db = \Config\Database::connect();
+            $builder = $db->table('termin');
+            $builder->select('DatumIVreme');
+            $builder->where('IdPac', $idPac)->where('Ostvaren',0);
+            $query = $builder->get();
+            $result = $query->getResult();
+            return $result;
+        }
+          #Filip Zaric 0345/2018
+        public function dohvatiZauzeteTermineLekara($idPru){
+            $db = \Config\Database::connect();
+            $builder = $db->table('termin');
+            $builder->select('DatumIVreme');
+            $builder->where('IdPru', $idPru)->where('Ostvaren',0);
+            $query = $builder->get();
+            $result = $query->getResult();
+            return $result;
+        
+        
+           
+        }
+        #Filip Zaric 0345/2018
+        public function dodajTermin($idpac,$idpru,$timestamp){
+            $data = [
+                'IdPac' => $idpac,
+                'IdPru'    => $idpru,
+                'DatumIVreme'=>$timestamp,
+                'Ostvaren' =>0,
+                'TekstNalaza'=>'P'
+            ];
+            $this->insert($data);
+        }
 
 
 
