@@ -103,17 +103,54 @@ class Pacijent extends BaseController
                   return $this->oceni("Uspesno ste ocenili lekara!");
                     
     }
-    #Filip Zaric 0345/2018
+/**
+ *  Funkcija koja se poziva pri kliku na dugme "Karton" na stranici "Moji pacijenti" i koja nalazi i prikazuje karton pacijenta
+ * 
+ * @param int $IdK - Id pacijenta u tabeli "Korisnik" ciji se karton prikazuje
+ * 
+ * @author Filip Kojic 0285/2018
+ */
+    public function prikaziKarton($idk){
+        $terminModel=new TerminModel();
+        $pacijent = $this->session->get('korisnik');
+              $nalazi = $terminModel->nadjiNalaze($pacijent->IdK);
+              $this->prikaz('karton.php', ['pacijent' => $pacijent,'nalazi'=>$nalazi]);
+    }
+
+/**
+ *  Funkcija koja se poziva pri kliku na link "Link" i koja nalazi i prikazuje nalaz pacijenta
+ * 
+ *  @param int $IdT - Id termina u tabeli "Termin" iz koga se uzimaju podaci o tekstu nalaza i snimku
+ * 
+ *  @author Filip Kojic 0285/2018
+ */
+    public function prikaziNalaz($IdT){
+        $terminModel = new TerminModel();
+        $nalaz = $terminModel->where('IdT',$IdT)->first();
+        $this->prikaz('nalaz.php', ['nalaz' => $nalaz]);
+}
+
+
+
+
+
+
+     #Filip Zaric 0345/2018
     public function noviKarton($poruka=null,$vrsta=0){
         $korisnikTrenutni=$this->session->get('korisnik');
-        if($korisnikTrenutni->KrvnaGrupa ==null && $poruka == null){
-        //    $this->prikaz('noviKarton', ['poruka'=>$poruka,'vrsta'=>$vrsta]);
+        if($korisnikTrenutni->KrvnaGrupa ==null ){
+            if($vrsta==5)   $this->prikaz('noviKarton', ['poruka'=>$poruka,'vrsta'=>$vrsta]);
+          else
          $this->prikaz('nemateKarton',[]);
      
         }
         else{
-
-            $this->prikaz('noviKarton', ['poruka'=>$poruka,'vrsta'=>$vrsta]);
+            if($vrsta==1){ 
+              return  $this->prikaz('noviKarton', ['poruka'=>$poruka,'vrsta'=>$vrsta]);
+            }else{
+                return $this->prikaziPacijenta();
+            }
+           
         }
 
      

@@ -9,7 +9,7 @@
  <br>
  U polja koja biste ostavili prazna upišite- "/"!
 </div> 
- <center> <a href="<?= site_url("Pacijent/noviKarton/123")?>"</a> <button class="button button-secondary">Popunite formu</button>  </center>  
+ <center> <a href="<?= site_url("Pacijent/noviKarton/null/5")?>"</a> <button class="button button-secondary">Popunite formu</button>  </center>  
 
   
 

@@ -46,7 +46,7 @@
                     }  else $color="red";
                     ?>
 
-                        <?php if(isset($poruka)) echo " </br><font color=$color size = 5px>$poruka</font>"; ?>
+                        <?php if(isset($poruka) && $poruka!="null") echo " </br><font color=$color size = 5px>$poruka</font>"; ?>
         
         </td>
         
@@ -56,4 +56,4 @@
 
 </form>
             </div>
-        
+          </div>
