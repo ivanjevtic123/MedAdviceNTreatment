@@ -19,7 +19,7 @@ class KorisnikModel extends Model
         protected $returnType = 'object';
         protected $allowedFields = ['Ime', 'Prezime', 'KorisnickoIme', 'Lozinka', 'E_posta', 'DatumRodjenja' , 'MestoRodjenja', 'MestoPrebivalista' , 'AdresaPrebivalista' , 'JMBG', 'Pol'
     ,'NaCekanju','JeObrisan',  'KrvnaGrupa','IstorijaBolesti','HronicneBolesti','ZarazneBolesti','LekoviAlergije',
-     'HiruskiZahvati','Rezime','Slika','ZbirOcena','BrojOcena','Uloga'];
+     'HiruskiZahvati','Rezime','Slika','ZbirOcena','BrojOcena','Uloga', 'Specijalnost'];
     
     /**
 	   * Funkcija koja sluzi za uklanjanje korisnika iz baze

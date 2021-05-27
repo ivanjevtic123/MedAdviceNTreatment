@@ -28,7 +28,7 @@
                             <a class="nav-link" href="<?= site_url("Menadzer/index")?>">POCETNA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">USLUGE</a>
+                            <a class="nav-link" href="<?= site_url("Menadzer/services")?>">USLUGE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("Menadzer/ukloni")?>">UKLONI KORISNIKA</a>

@@ -28,7 +28,7 @@
                             <a class="nav-link" href="<?= site_url("Pacijent/index")?>">POCETNA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url("#")?>">USLUGE</a>
+                            <a class="nav-link" href="<?= site_url("Pacijent/services")?>">USLUGE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("Pacijent/noviKarton")?>">PREGLED KARTONA</a>

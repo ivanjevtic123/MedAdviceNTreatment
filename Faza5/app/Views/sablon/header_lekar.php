@@ -37,7 +37,7 @@
                             <a class="nav-link" href="<?= site_url("Lekar/index")?>">POCETNA</a>
                         </li>
                         <li class="nav-item" >
-                            <a class="nav-link" href="<?= site_url("#")?>">USLUGE</a>
+                            <a class="nav-link" href="<?= site_url("Lekar/services")?>">USLUGE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url("Lekar/prikaziPacijente")?>">MOJI PACIJENTI</a>
