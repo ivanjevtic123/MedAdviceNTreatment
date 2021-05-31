@@ -1,6 +1,9 @@
 <!-- Ivan Jevtic 0550/2018 -->
 <div class="col-lg-8 col-md-8 right">
     <div class='offset-sm-3 col-sm-4 text-center'>
+        <?php 
+        if(isset($poruka) && ($poruka == "Uspesno ste poslali zahtev za registraciju")) echo " </br><font color='green' size = 5px>$poruka</font><br/><br/>";
+        ?>
         <form name="registerForm" action="<?= site_url("Gost/registerSubmit") ?>" method="post" enctype= "multipart/form-data">
             <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REGISTRACIJA</h2>
             <table class="table" id="registerTable">
@@ -126,7 +129,13 @@
                 
             </table>
         </form>
-        <font color='red'><?php if(isset($poruka)) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font>
+        <font color='red'>
+        <?php 
+        if(isset($poruka) && ($poruka != "Uspesno ste poslali zahtev za registraciju")) echo " </br><font color='red' size = 5px>$poruka</font>"; 
+        
+        ?>
+        </font>
+
     </div>
 </div>
 </div><!--Div koji zatvara glavni -->

@@ -86,7 +86,7 @@ class Gost extends BaseController
         }
 
         
-		#Ivan Jevtic 0550/2018
+		 #Ivan Jevtic 0550/2018
         public function register($poruka = null) {
             $uslugaModel = new UslugaModel();
             $usluge = $uslugaModel->getUsluge();
@@ -172,13 +172,13 @@ class Gost extends BaseController
 
             $allowed = array('jpg','png','jpeg','jfif');
 
-            if(!in_array( $fileActualExtension,$allowed))
+            if(!in_array( $fileActualExtension,$allowed) && $vrsta == 'L')
             return $this->register("Fajl koji ste izabrali nije slika!");
 
-            if(!($fileError===0))
+            if(!($fileError===0) && $vrsta == 'L')
             return $this->register("Greska pri postavljanju fajla!");
 
-            if($fileSize > 1000000)
+            if($fileSize > 1000000 && $vrsta == 'L')
             return $this->register("Preveliki fajl!");
 
             $fileNameNew = uniqid('',true)."."."$fileActualExtension";
@@ -256,7 +256,9 @@ class Gost extends BaseController
                 $pruzaModel->save($podaci);
             }
 
-            return redirect()->to(site_url('Gost'));
+            //return redirect()->to(site_url('Gost'));
+            $msg = "Uspesno ste poslali zahtev za registraciju";
+            return $this->register($msg);
         }
 		
 		#Ivan Jevtic 0550/2018
