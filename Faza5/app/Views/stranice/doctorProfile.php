@@ -42,7 +42,8 @@
             <hr>
             <?php 
                 if($controller == "Pacijent") {
-                    echo "<button class='btn btn-secondary'><a style='color: white;' href='../zakazi/{$IdDoc}/{$IdU}'>ZAKAZI TERMIN</a></button>";
+                   // echo "<button class='btn btn-secondary'><a style='color: white;' href='Pacijent/zakazi/{$IdDoc}/{$IdU}'>ZAKAZI TERMIN</a></button>";
+                    echo anchor("Pacijent/zakazi/{$IdDoc}/{$IdU}", "Zakazi termin",'class="btn btn-secondary"');
                 }
             ?>
 

@@ -6,7 +6,7 @@
                <form action="<?= site_url("$controller/zakaziTerminSubmit") ?>" method="post" >
 <table class="table table-light table-striped" cellspacing="15px" >
     <tr>
-  <?php echo json_encode($vremena); ?>;
+  <!-- <?php echo json_encode($vremena); ?>;-->
    <script>var times = <?php echo json_encode($vremena); ?>; </script>
         <td>Datum termina:</td>
         <td>
