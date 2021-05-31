@@ -4,6 +4,7 @@
  */
 ?>
      <div class="col-lg-8 col-md-8 right">
+     <?php if($pacijenti != null) {?>
         <table class="table table-striped">
             <th>Ime</th>
             <th>Prezime</th>
@@ -26,6 +27,8 @@
         }
             ?>
          </table>
+         <?php }?>
+         <font color='red'><?php if(isset($poruka) && strcmp($poruka,'Trenutno nema pacijenata za prikaz!') == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
      <br><br>
    </div>
    </div>
