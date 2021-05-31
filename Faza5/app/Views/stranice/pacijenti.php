@@ -19,10 +19,9 @@
                 echo anchor("Lekar/prikaziKarton/{$pacijent->IdK}", "Karton",'class="btn btn-secondary"');
                 echo '</td>';
 
-               //ZA DODAVANJE NALAZA
-               // echo '<td>';
-               // echo anchor("Lekar/dodajNalaz/{$pacijent->IdK}", "Dodaj Nalaz",'class="btn btn-secondary"');
-               // echo '</td>';
+               echo '<td>';
+               echo anchor("Lekar/addingMedResults/{$pacijent->IdK}", "Dodaj Nalaz",'class="btn btn-secondary"');
+               echo '</td>';
             }
         }
             ?>
