@@ -15,7 +15,8 @@
              
             foreach ($lekari as $lekar) {
                 if($lekar != null){
-                $ime = $lekar->Ime;
+                $ime = "dr ";
+                $ime .= $lekar->Ime;
                 $ime .= ' ';
                 $ime .=  $lekar->Prezime;
                 echo "<tr><td>{$ime}</td><td>{$lekar->PreostaloOcena}</td>";
