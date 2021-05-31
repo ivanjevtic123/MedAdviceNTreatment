@@ -1,4 +1,4 @@
-<!-- Ivan Jevtic 0550/2018 $doctor-->
+<!-- Ivan Jevtic 0550/2018 -->
 <div class="col-lg-9 col-md-10 right" style='margin-top: 20px; margin-bottom: 200px;'>
     <div class='offset-sm-1 col-sm-8 text-center'>
         <div id="nameOfDoc">
@@ -16,8 +16,16 @@
             <div>
                 <table class="table">
                     <tr>
+						<?php 
+                            if($doctor->BrojOcena == 0) {
+                                $rate = 0;
+                            } else {
+                                $rate = $doctor->ZbirOcena / $doctor->BrojOcena;
+                                $rate = round($rate, 2);
+                            }
+                        ?>
                         <td style='align-items: center;'>Ocena:</td>
-                        <td style='align-items: center;' id="ocenaDr"><?php echo "{$doctor->Prezime}"; ?></td>
+                        <td style='align-items: center;' id="ocenaDr"><?php echo "{$rate}"; ?></td>
                     </tr>
                     <tr>
                         <td style='align-items: center;'>Cena(rsd):</td>
