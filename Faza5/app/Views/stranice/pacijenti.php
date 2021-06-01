@@ -10,6 +10,7 @@
             <th>Prezime</th>
             <th>JMBG</th>
             <th>&nbsp;</th>
+			<th>&nbsp;</th>
              <?php
             foreach ($pacijenti as $pacijent) {
                if($pacijent!=null) {
