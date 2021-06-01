@@ -95,7 +95,6 @@
                 <tr class="sakrivanje">
                     <td>Specijalnost(lekar):</td>
                     <td>
-                        <!-- multiple sam mogao-->
                         <select name="speciality" id="speciality">
                         <?php
                             foreach($usluge as $usluga) {

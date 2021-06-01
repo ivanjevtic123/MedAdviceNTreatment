@@ -123,28 +123,49 @@ public function odobriKorisnika($IdK){
 
 
 
-	#Ivan Jevtic 0550/2018
+	/**
+    * Funkcija koja se poziva klikom na "Usluge" i koja nalazi i prikazuje dostupne usluge
+    * @param string $poruka - poruka koja se prikazuje na stranici
+    * @author Ivan Jevtic 0550/2018
+    */
     public function services($poruka = null) {
         $uslugaModel = new UslugaModel();
         $usluge = $uslugaModel->getUsluge();
         $this->prikaz('services', ['poruka'=>$poruka,'usluge'=>$usluge]);
     }
 
-    #Ivan Jevtic 0550/2018
+    /**
+    * Funkcija koja se poziva klikom na neku uslugu sa stranice "Usluge"
+    * Ispisuje i nalazi lekare koji pruzaju datu uslugu
+    * @param int IdU$ - Id ulusge koju je korisnik izabrao
+    * @author Ivan Jevtic 0550/2018
+    */
     public function doctorsList($IdU) {
         $korisnikModel = new KorisnikModel();
         $doctors = $korisnikModel->nadjiLekareZaUslugu($IdU);
         $this->prikaz('doctorsList', ['doctors'=>$doctors, 'IdU' => $IdU]);
     }
 
-    #Ivan Jevtic 0550/2018
+    /**
+    * Funkcija koja se poziva klikom na sliku odredjenog lekara koji pruza odredjenu uslugu(stranica za prikaz lekara)
+    * Ispisuje i nalazi lekare koji pruzaju datu uslugu
+    * @param int $IdDoc - Id lekara kiji je izabran
+    * @param int $IdU - Id ulusge koju je lekar pruza
+    * @param int $cena - cena usluge
+    * @author Ivan Jevtic 0550/2018
+    */
     public function doctorProfile($IdDoc, $IdU, $cena) {
         $korisnikModel = new KorisnikModel();
         $doctor = $korisnikModel->where('IdK',$IdDoc)->first();
         $this->prikaz('doctorProfile', ['IdDoc' => $IdDoc ,'doctor' => $doctor, 'IdU' => $IdU, 'cena' => $cena]);
     }
 
-    #Ivan Jevtic 0550/2018
+    /**
+    * Funkcija koja se poziva izborom nacina sortiranja i klikom na "Sortiraj" sa stranice "Usluge",
+    * Ispisuje i nalazi lekare koji pruzaju datu uslugu sortirano po ceni po kojoj pruzaju datu uslugu
+    * @param int IdU$ - Id ulusge koju je korisnik izabrao
+    * @author Ivan Jevtic 0550/2018
+    */
     public function doctorsListSorted($IdU) {
         $korisnikModel = new KorisnikModel();
 

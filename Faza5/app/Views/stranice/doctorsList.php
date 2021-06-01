@@ -1,4 +1,4 @@
-<!-- Ivan Jevtic 0550/2018 $doctors-->
+<!-- Ivan Jevtic 0550/2018 -->
 <div class="col-lg-9 col-md-10 right" style="margin-top: 15px;margin-bottom: 15px;">
     <div class='offset-sm-2 col-sm-8 text-center' id="doctorsList">
         <div id="sort">

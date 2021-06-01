@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
     #Filip Kojic 0285/2018
+    #Ivan Jevtic 0550/2018
 
 use CodeIgniter\Model;
 use App\Models\LecioModel;
@@ -55,14 +56,30 @@ class LecioModel extends Model
          $this->update($IdLec,$data);
         }
 		
-		#Ivan Jevtic 0550/2018
+	  /**
+     * Funkcija koja proverava da li je dati lekar lecio datog pacijenta
+     * 
+     * @param int $IdPac - id pacijenta u tabeli "Korisnik"
+     * @param int $IdLek - id lekara u tabeli "Korisnik"
+     * 
+     * @return Boolean
+     * 
+     * @author Ivan Jevtic 0550/2018
+     */
 		public function postojiLecio($IdPac, $IdLek) {
 			$red = $this->where('IdPac',$IdPac)->where('IdLek',$IdLek)->first();
 			if($red != null) return true;
 			else return false;
 		}
 
-		#Ivan Jevtic 0550/2018
+     /**
+     * Funkcija namenjena inkrementiranju broja preostalih ocena za lekara
+     * 
+     * @param int $IdPac - id pacijenta u tabeli "Korisnik" koji ocenjuje lekara
+     * @param int $IdLek - id lekara u tabeli "Korisnik" koji se ocenjuje
+     * 
+     * @author Ivan Jevtic 0550/2018
+     */
 		public function inkrementirajPreostaloOcena($IdPac,$IdLek){
 			 $red = $this->where('IdPac',$IdPac)->where('IdLek',$IdLek)->first();
 			 $IdLec = $red->IdLec;

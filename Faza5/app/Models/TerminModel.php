@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
  #Filip Kojic 0285/2018
+ #Ivan Jevtic 0550/2018
 
 use CodeIgniter\Model;
 use App\Models\TerminModel;
@@ -40,7 +41,15 @@ class TerminModel extends Model
             return $result;
          }
 
-		#Ivan Jevtic 0550/2018
+        /**
+         * Funkcija koja nalazi neostvarene termine za datog pacijenta
+         * 
+         * @param int $IdPac - id pacijenta u tabeli "Termin" ciji se neostvareni termini traze
+         * 
+         * @return Object[]
+         * 
+         * @author Ivan Jevtic 0550/2018
+         */
         public function getNeostvareniTermini($IdPac) {
             $db = \Config\Database::connect();
             $builder = $db->table('termin');
@@ -55,9 +64,18 @@ class TerminModel extends Model
             return $result;
         }
 		
-		#Ivan Jevtic 0550/2018
+		/**
+         * Funkcija koja postavlja tekst i putanju nalaza u tabelu "termin"
+         * 
+         * @param Object $red - objekat koji predstavlja jedan red tabele "termin" 
+         * @param string $tekst - tekst nalaza koji se cuva
+         * @param string $snimak - putanja gde se cuva snimak nalaza
+         * 
+         * @return Object[]
+         * 
+         * @author Ivan Jevtic 0550/2018
+         */
         public function postaviSnimakINalaz($red,$tekst,$snimak){
-            // $nesto = "ivanb";
             $podaci = [
             'TekstNalaza' => $tekst,
             'Snimak' => $snimak,

@@ -2,6 +2,7 @@
 
     #Filip Kojic 0285/2018
     #Filip Zaric 0345/2018
+    #Ivan Jevtic 0550/2018
 
 use CodeIgniter\Model;
 use App\Models\KorisnikModel;
@@ -135,7 +136,15 @@ class KorisnikModel extends Model
           return $result;
       }
 	  
-		 #Ivan Jevtic 0550/2018
+		 /**
+	   * Funkcija koja sluzi da pronadje lekare iz baze za uslugu sa prosledjenim id-em
+     * 
+     * @param int $IdU  - id usluge u tabeli "Usluga" za koju se traze lekari
+     * 
+     * @return Object[]
+     * 
+     * @author Ivan Jevtic 0550/2018
+     */
 		public function nadjiLekareZaUslugu($IdU) {
 			$db = \Config\Database::connect();
 			$builder = $db->table('korisnik'); 
@@ -149,7 +158,16 @@ class KorisnikModel extends Model
 			return $result;
 		}
 
-		#Ivan Jevtic 0550/2018
+		/**
+	   * Funkcija koja sluzi da pronadje lekare iz baze za uslugu sa prosledjenim id-em
+     * 
+     * @param int $IdU  - id usluge u tabeli "Usluga" za koju se traze lekari
+     * @param int $order - da li se radi opadajuce ili rastuce sortiranje
+     * 
+     * @return Object[]
+     * 
+     * @author Ivan Jevtic 0550/2018
+     */
 		public function nadjiLekareZaUsluguSortirano($IdU, $order) {
 		  $db = \Config\Database::connect();
 		  $builder = $db->table('korisnik'); 
@@ -159,9 +177,9 @@ class KorisnikModel extends Model
 		  $builder->join('usluga', 'usluga.IdU = pruza.IdU', 'inner');
 		  $builder->where('usluga.IdU', $IdU);
 		  if($order == 1) {
-			  $builder->orderBy('pruza.Cena', 'DESC');//SORT
+			  $builder->orderBy('pruza.Cena', 'DESC');//SORT_DESC
 		  } else {
-			  $builder->orderBy('pruza.Cena', 'ASC');//SORT
+			  $builder->orderBy('pruza.Cena', 'ASC');//SORT_ASC
 		  }
 		  $query = $builder->get();
 		  $result = $query->getResult();

@@ -1,4 +1,4 @@
-<!-- Ivan Jevtic 0550/2018 ['pacijent' => $pacijent, 'termini' => $termini]);-->
+<!-- Ivan Jevtic 0550/2018 -->
 <div class="col-lg-9 col-md-10 right">
     <div class='offset-sm-2 col-sm-6 text-center'>
         <form name="medicalFinding" action="<?= site_url("Lekar/addingMedResultsSubmit/{$pacijent->IdK}") ?>" method="post" enctype= "multipart/form-data">
