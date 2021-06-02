@@ -114,7 +114,7 @@ class Pacijent extends BaseController
         $pacijent = $this->session->get('korisnik');
         $pacijenti=[];
         array_push($pacijenti,$pacijent);
-              $this->prikaz('pacijenti.php', ['pacijenti'=>$pacijenti]);
+              $this->prikaz('pacijenti2.php', ['pacijenti'=>$pacijenti]);
     }
 /**
  *  Funkcija koja se poziva pri kliku na dugme "Karton" na stranici "Pregled kartona" i koja nalazi i prikazuje karton pacijenta
