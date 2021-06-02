@@ -40,7 +40,7 @@ izmeniInput();
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-               alert( this.responseText.split("\n")[0]);
+              // alert( this.responseText.split("\n")[0]);
              //  alert(JSON.parse(this.responseText));
              pomocni= this.responseText.split("\n")[0];
            
@@ -49,7 +49,7 @@ izmeniInput();
              doSomething(JSON.parse(pomocni));
               }
             };
-            xmlhttp.open("GET", "http://faza5/index.php/Pacijent/dohvatiVreme", true);
+            xmlhttp.open("GET", "http://localhost:8080/index.php/Pacijent/dohvatiVreme", true);
             xmlhttp.send(); 
         
         

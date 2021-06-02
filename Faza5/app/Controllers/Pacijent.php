@@ -189,13 +189,13 @@ class Pacijent extends BaseController
  *  @author Filip Zaric 0345/2018
  */
     public function noviKartonSubmit(){
-        if(!$this->validate(['krvnaGrupa'=>'required|in_list[A-,A+,B-,B+,0+,0-,AB+,AB-]']))  return $this->noviKarton("Krvna grupa losa");
+        if(!$this->validate(['krvnaGrupa'=>'required|in_list[A-,A+,B-,B+,0+,0-,AB+,AB-]']))  return $this->noviKarton("Krvna grupa losa",5);
 
       if(!$this->validate(['krvnaGrupa'=>'required|in_list[A-,A+,B-,B+,0+,0-,AB+,AB-]','istorijaBolesti'=>'required','hronicneBolesti'=>'required',
       'zarazneBolesti'=>'required','lekoviReakcija'=>'required','hirurskiZahvati'=>'required'
       
       ]))
-          return $this->noviKarton("Morate popuniti sva polja adekvatnim vrednostima!");
+          return $this->noviKarton("Morate popuniti sva polja adekvatnim vrednostima!",5);
 
        
            $krvnaGrupa=$this->request->getVar("krvnaGrupa");
