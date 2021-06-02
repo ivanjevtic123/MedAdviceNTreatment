@@ -1,6 +1,6 @@
 var idLek;
 var idPru;
-
+var pomocni;
 function izmeniInput()
 {
     
@@ -10,11 +10,17 @@ function izmeniInput()
     var month2 = ("0" + (todaysDate.getMonth() + 2)).slice(-2);
     var day = ("0" + todaysDate.getDate()).slice(-2);
     var minDate = (year +"-"+ month +"-"+ day);
+    if(day==31){
+        month2=("0" + (todaysDate.getMonth() + 3)).slice(-2);
+        day="01";
+    }
     var maxDate=(year +"-"+ month2 +"-"+ day);
-  
+//     alert("minimalni je"+minDate);
+  //   alert("maksimalni je"+maxDate);
      $("#dateExam").attr('min',minDate); 
      $("#dateExam").attr('max',maxDate); 
 }
+
 jQuery(document).ready(function() {
    
    
@@ -26,16 +32,38 @@ izmeniInput();
           //  alert(""+$("#dateExam").attr("name"));
             
             var val=$("#dateExam").val();
+
         }
+       
+        function dohvati(){
+            XMLHttpRequest.responseType="JSON";
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+               alert( this.responseText.split("\n")[0]);
+             //  alert(JSON.parse(this.responseText));
+             pomocni= this.responseText.split("\n")[0];
+           
+             
+             
+             doSomething(JSON.parse(pomocni));
+              }
+            };
+            xmlhttp.open("GET", "http://faza5/index.php/Pacijent/dohvatiVreme", true);
+            xmlhttp.send(); 
         
+        
+        
+        } 
+dohvati();
 
 
-
-doSomething(times);
+//doSomething(dohvati());
 
 
 
 function doSomething(php_result){
+  //  alert("ovo je moj rez"+php_result);
     let pok=JSON.stringify(php_result);
    
     php_result=php_result;

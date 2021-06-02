@@ -6,8 +6,8 @@
                <form action="<?= site_url("$controller/zakaziTerminSubmit") ?>" method="post" >
 <table class="table table-light table-striped" cellspacing="15px" >
     <tr>
-  <!-- <?php echo json_encode($vremena); ?>;-->
-   <script>var times = <?php echo json_encode($vremena); ?>; </script>
+  
+   
         <td>Datum termina:</td>
         <td>
         <input   name="datumSubmit" id="dateExam" type="date" >
@@ -47,7 +47,14 @@
     </tr>
     <tr>
         <td colspan="2" align="center"> <input class="btn btn-secondary" type="submit" id="dugmeZakazi"value="Zakazi termin"></input>
-        <?php  
+       
+    
+    
+    </td>
+        
+    </tr>
+</table>
+<?php  
                     if(isset($vrsta) && $vrsta==1){
                         $color="green";
 
@@ -55,12 +62,6 @@
                     ?>
 
                         <?php if(isset($poruka)) echo " </br><font color=$color size = 5px>$poruka</font>"; ?>
-    
-    
-    </td>
-        
-    </tr>
-</table>
 </form>
 
 

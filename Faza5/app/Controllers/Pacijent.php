@@ -297,6 +297,16 @@ class Pacijent extends BaseController
         $usluge = $uslugaModel->getUsluge();
         $this->prikaz('services', ['poruka'=>$poruka,'usluge'=>$usluge]);
     }
+        /*   **
+ *  Funkcija koja se poziva asinhrono preko ajaxa i vraca timestampove zauzetih termina
+ *  @author Filip Zaric 0345/2018
+ */
+ public function dohvatiVreme(){
+     $vremena=$this->session->get("vremena");
+    echo json_encode($vremena);
+    
+ }  
+
 
     /**
     * Funkcija koja se poziva klikom na neku uslugu sa stranice "Usluge"
