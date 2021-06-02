@@ -185,8 +185,8 @@ class Gost extends BaseController
             if(!($fileError===0) && $vrsta == 'L')
             return $this->register("Greska pri postavljanju fajla!");
 
-            if($fileSize > 1000000 && $vrsta == 'L')
-            return $this->register("Preveliki fajl!");
+            //if($fileSize > 1000000 && $vrsta == 'L')
+            //return $this->register("Preveliki fajl!");
 
             $fileNameNew = uniqid('',true)."."."$fileActualExtension";
             $fileDestination = "web/".$fileNameNew;

@@ -95,6 +95,7 @@
                 <tr class="sakrivanje">
                     <td>Specijalnost(lekar):</td>
                     <td>
+                        <!-- multiple sam mogao-->
                         <select name="speciality" id="speciality">
                         <?php
                             foreach($usluge as $usluga) {
@@ -121,7 +122,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="text-center">
-                        <button type="submit" class="btn btn-secondary">Dodaj</button>
+                        <button type="submit" class="btn btn-secondary">Predaj</button>
                     </td>
                 </tr>
                 </tr>

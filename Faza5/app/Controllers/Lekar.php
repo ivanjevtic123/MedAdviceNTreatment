@@ -137,8 +137,8 @@ class Lekar extends BaseController
         if(!($fileError===0))
         return $this->addingMedResults("Greska pri postavljanju fajla!");
 
-        if($fileSize > 1000000)
-        return $this->addingMedResults("Preveliki fajl!");
+        //if($fileSize > 1000000)
+        //return $this->addingMedResults("Preveliki fajl!");
 
         $fileNameNew = uniqid('',true)."."."$fileActualExtension";
         $fileDestination = "web/".$fileNameNew;
