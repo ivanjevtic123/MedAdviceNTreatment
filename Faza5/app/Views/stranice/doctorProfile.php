@@ -11,7 +11,7 @@
         </div>
         <div id="picAndInfo">
             <div>
-                <img src="/web/dr1.jpg" style='height: 400px;margin-top: 15px;margin-bottom: 15px;justify-content: space-around;'>
+                <img src=<?php echo "{$doctor->Slika}"; ?> style='height: 400px;margin-top: 15px;margin-bottom: 15px;justify-content: space-around;'>
             </div>
             <div>
                 <table class="table">
