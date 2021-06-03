@@ -331,7 +331,8 @@ class Pacijent extends BaseController
     public function doctorProfile($IdDoc, $IdU, $cena) {
         $korisnikModel = new KorisnikModel();
         $doctor = $korisnikModel->where('IdK',$IdDoc)->first();
-        $this->prikaz('doctorProfile', ['IdDoc' => $IdDoc ,'doctor' => $doctor, 'IdU' => $IdU, 'cena' => $cena]);
+        $pacijent = $this->session->get('korisnik');
+        $this->prikaz('doctorProfile', ['IdDoc' => $IdDoc ,'doctor' => $doctor, 'IdU' => $IdU, 'cena' => $cena,'pacijent'=>$pacijent]);
     }
 
     /**

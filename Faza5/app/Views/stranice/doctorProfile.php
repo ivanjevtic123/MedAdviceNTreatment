@@ -41,13 +41,15 @@
         <div id="schedule">
             <hr>
             <?php 
-                if($controller == "Pacijent") {
+                if($controller == "Pacijent") {                   
+                    if ($pacijent->KrvnaGrupa!=null){
                    // echo "<button class='btn btn-secondary'><a style='color: white;' href='Pacijent/zakazi/{$IdDoc}/{$IdU}'>ZAKAZI TERMIN</a></button>";
                     echo anchor("Pacijent/zakazi/{$IdDoc}/{$IdU}", "Zakazi termin",'class="btn btn-secondary"');
-                }
-            ?>
-
-            
+                 } 
+                else {
+                    $poruka = "Da biste zakazali termin kod lekara prvo popunite karton!";
+                    echo " </br><font color='green' size = 5px>$poruka</font>";}} ?>
+                    
         </div>
     </div>
 </div>
