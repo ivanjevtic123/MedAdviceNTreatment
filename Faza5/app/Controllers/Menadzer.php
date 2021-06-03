@@ -70,8 +70,8 @@ public function zahtev($poruka=null){
     $korisnikModel = new KorisnikModel();
     $korisnici = $korisnikModel->korisniciCekaju();
     if($korisnici!=null)
-       $this->prikaz('odobravanjeZahteva', ['poruka'=>$poruka,'korisnici'=>$korisnici]);
-       $this->prikaz('odobravanjeZahteva', ['poruka'=>"Trenutno nema korisnika za prikaz!",'korisnici'=>$korisnici]);  
+       return $this->prikaz('odobravanjeZahteva', ['poruka'=>$poruka,'korisnici'=>$korisnici]);
+       return $this->prikaz('odobravanjeZahteva', ['poruka'=>"Trenutno nema korisnika za prikaz!",'korisnici'=>$korisnici]);  
 }
    /**
 	   * Funkcija koja se poziva pritiskom dugmeta "Odobri" na stranici "Zahtevi"
