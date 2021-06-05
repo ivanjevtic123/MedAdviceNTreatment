@@ -152,9 +152,9 @@ class Gost extends BaseController
             if((!$this->validate(['resume'=>'required'])) && ($vrsta == 'L')){
                 return $this->register("Unesite Rezime!");
             }
-            if((!$this->validate(['img'=>'required'])) && ($vrsta == 'L')){
-                return $this->register("Izaberite sliku!");
-            }
+            //if((!$this->validate(['img'=>'required'])) && ($vrsta == 'L')){
+            //    return $this->register("Izaberite sliku!");
+            //}
 
             //da li postoji korisnik:
             $korisnikModel = new KorisnikModel();
