@@ -153,6 +153,8 @@ class KorisnikModel extends Model
 			$builder->join('pruza', 'pruza.IdLek = korisnik.IdK', 'inner');
 			$builder->join('usluga', 'usluga.IdU = pruza.IdU', 'inner');
 			$builder->where('usluga.IdU', $IdU);
+			$builder->where('NaCekanju', 0);
+			$builder->where('JeObrisan', 0);
 			$query = $builder->get();
 			$result = $query->getResult();
 			return $result;
