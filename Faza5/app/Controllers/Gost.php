@@ -168,6 +168,18 @@ class Gost extends BaseController
                 
             }
 
+            $korisnik2 = $korisnikModel->where('JMBG',$this->request->getVar('jmbg'))->first();
+            if($korisnik2!=null){ // vec postoji
+                return $this->register("JMBG vec postoji!");
+                
+            }
+
+            $korisnik3 = $korisnikModel->where('E_posta',$this->request->getVar('mail'))->first();
+            if($korisnik3!=null){ // vec postoji
+                return $this->register("E_posta vec postoji!");
+                
+            }
+
             $file = $_FILES['img'];
             $fileName = $_FILES['img']['name'];
             $fileTmpName = $_FILES['img']['tmp_name'];
