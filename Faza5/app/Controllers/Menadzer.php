@@ -117,7 +117,7 @@ public function odobriKorisnika($IdK){
       $korisnik = $korisnikModel->where('IdK',$IdK)->first();
       if($korisnik->JeObrisan == 0){
         $korisnikModel->obrisiKorisnika($IdK);
-          return $this->ukloni('Uspešno ste uklonili korisnika!');
+        return $this->ukloni('Uspesno ste uklonili korisnika!');
            }
             return $this->ukloni();
     }

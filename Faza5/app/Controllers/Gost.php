@@ -70,7 +70,7 @@ class Gost extends BaseController
 					return $this->login("Korisnik ne postoji!");
 				}
 				if($korisnik->Lozinka!=$this->request->getVar('password')){
-					return $this->login("Pogrešna lozinka!");
+                    return $this->login("Pogresna lozinka!");
 				}
 
                  $this->session->set('korisnik',$korisnik);

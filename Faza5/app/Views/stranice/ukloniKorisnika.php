@@ -14,7 +14,7 @@
              <?php
             foreach ($korisnici as $korisnik) {
                if($korisnik!=null) {
-                if($korisnik->Uloga == "M") $tip="Menadžer";
+                if($korisnik->Uloga == "M") $tip="Menadzer";
                   if($korisnik->Uloga == "L") $tip="Lekar";
                     if($korisnik->Uloga == "P") $tip="Pacijent";
 
@@ -27,7 +27,7 @@
       ?>
          </table>
          <?php }?>
-         <font color='green'><?php if(isset($poruka) && strcmp($poruka,'Uspešno ste uklonili korisnika!') == 0) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
+         <font color='green'><?php if(isset($poruka) && strcmp($poruka,'Uspesno ste uklonili korisnika!') == 0) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
          <font color='red'><?php if(isset($poruka) && strcmp($poruka,'Trenutno nema korisnika za prikaz!') == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
      <br><br>
    </div>
