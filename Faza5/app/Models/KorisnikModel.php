@@ -114,26 +114,6 @@ class KorisnikModel extends Model
                'BrojOcena' => $broj
              ];
              $this->update($IdK,$data);
-     }
-
-      /**
-	   * Funkcija koja sluzi za nadje pacijente iz baze za lekara sa prosledjenim id-jem
-     * 
-     * @param int $IdK  - id lekara u tabeli "Korisnik" ciji se pacijenti traze
-     * 
-     *  @return Object[]
-     * 
-     * @author Filip Kojic 0285/2018
-     */
-      public function nadjiPacijente($IdK){
-        $db = \Config\Database::connect();
-          $builder = $db->table('korisnik');
-          $builder->select('*');
-          $builder->join('lecio', 'lecio.IdPac = korisnik.Idk', 'inner');
-          $builder->where('IdLek', $IdK)->where('JeObrisan',0);
-          $query = $builder->get();
-          $result = $query->getResult();
-          return $result;
       }
 	  
 		 /**

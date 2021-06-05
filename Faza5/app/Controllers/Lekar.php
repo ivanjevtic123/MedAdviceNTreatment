@@ -51,9 +51,10 @@ class Lekar extends BaseController
      */
         public function prikaziPacijente(){
             $lekar = $this->session->get('korisnik');
-             $korisnikModel = new KorisnikModel();
-               $pacijenti = $korisnikModel->nadjiPacijente($lekar->IdK);
-               if($pacijenti!=null)
+            // $korisnikModel = new KorisnikModel();
+                $terminModel = new TerminModel();
+                $pacijenti = $terminModel->nadjiPacijente($lekar->IdK);
+                   if($pacijenti!=null)
                   return $this->prikaz('pacijenti.php', ['pacijenti'=>$pacijenti]);
                    return $this->prikaz('pacijenti.php', ['poruka'=>'Trenutno nema pacijenata za prikaz!','pacijenti'=>$pacijenti]);
         }
@@ -97,8 +98,11 @@ class Lekar extends BaseController
         $korisnikModel = new KorisnikModel();
         $terminModel = new TerminModel();
         $pacijent = $korisnikModel->where('IdK',$IdPac)->first();
+
+        $lekar = $this->session->get('korisnik');
+        $IdLek = $lekar->IdK;
     
-        $termini = $terminModel->getNeostvareniTermini($IdPac);
+        $termini = $terminModel->getNeostvareniTermini($IdPac,$IdLek);
         $this->prikaz('addingMedResults.php', ['poruka'=>$poruka, 'pacijent' => $pacijent, 'termini' => $termini]);
         
     }

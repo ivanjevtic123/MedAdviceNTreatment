@@ -50,7 +50,7 @@ class TerminModel extends Model
          * 
          * @author Ivan Jevtic 0550/2018
          */
-        public function getNeostvareniTermini($IdPac) {
+        public function getNeostvareniTermini($IdPac,$IdLek) {
             $db = \Config\Database::connect();
             $builder = $db->table('termin');
             $builder->select('*');
@@ -59,6 +59,7 @@ class TerminModel extends Model
             $builder->join('usluga', 'usluga.IdU = pruza.Idu', 'inner');
             $builder->join('korisnik', 'korisnik.IdK = pruza.IdLek', 'inner');
             $builder->where('IdPac', $IdPac)->where('Ostvaren',0);
+            $builder->where('IdLek',$IdLek);
             $query = $builder->get();
             $result = $query->getResult();
             return $result;
@@ -141,5 +142,26 @@ class TerminModel extends Model
         }
 
 
+        /**
+	   * Funkcija koja sluzi za nadje pacijente iz baze za lekara sa prosledjenim id-jem
+     * 
+     * @param int $IdK  - id lekara u tabeli "Korisnik" ciji se pacijenti traze
+     * 
+     *  @return Object[]
+     * 
+     * @author Filip Kojic 0285/2018
+     */
+        public function nadjiPacijente($IdK){
+              $db = \Config\Database::connect();
+              $builder = $db->table('termin');
+              $builder->select('*');
+              $builder->join('pruza', 'pruza.IdPru = termin.IdPru', 'inner');
+              $builder->join('korisnik', 'korisnik.IdK = termin.IdPac', 'inner');
+              $builder->where('IdLek', $IdK)->where('JeObrisan',0);
+              $builder->groupBy('IdPac');
+              $query = $builder->get();
+              $result = $query->getResult();
+              return $result;
+          }
 
 }
