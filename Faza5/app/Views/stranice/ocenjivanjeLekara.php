@@ -45,8 +45,8 @@
             ?>
          </table>
          <?php }?>
-         <font color='green'><?php if(isset($poruka) && strcmp($poruka ,"Uspesno ste ocenili lekara!") == 0 ) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
-         <font color='red'><?php if(isset($poruka) && strcmp($poruka ,"Ne mozete vise ocenjivati lekara!") == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
+         <font color='green'><?php if(isset($poruka) && strcmp($poruka ,"Uspešno ste ocenili lekara!") == 0 ) echo " </br><font color='green' size = 5px>$poruka</font>"; ?></font></td>
+         <font color='red'><?php if(isset($poruka) && strcmp($poruka ,"Ne možete vise ocenjivati lekara!") == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
          <font color='red'><?php if(isset($poruka) && strcmp($poruka ,'Trenutno nema lekara za prikaz!') == 0) echo " </br><font color='red' size = 5px>$poruka</font>"; ?></font></td>
             </div>
         </div>

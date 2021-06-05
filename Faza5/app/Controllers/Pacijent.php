@@ -96,11 +96,11 @@ class Pacijent extends BaseController
             $korisnikModel = new KorisnikModel();
               $lecioModel = new LecioModel();
 
-              if(!$lecioModel->mozeDaSeOceni($IdPac,$IdK)) return $this->oceni("Ne mozete vise ocenjivati lekara!");
+              if(!$lecioModel->mozeDaSeOceni($IdPac,$IdK)) return $this->oceni("Ne možete vise ocenjivati lekara!");
 
                 $korisnikModel->uvecajZbirIBrojOcena($IdK,$ocenaVrednost);
                   $lecioModel->dekrementriajPreostaloOcena($IdPac,$IdK);
-                  return $this->oceni("Uspesno ste ocenili lekara!");
+                  return $this->oceni("Uspešno ste ocenili lekara!");
                     
     }
  /**
