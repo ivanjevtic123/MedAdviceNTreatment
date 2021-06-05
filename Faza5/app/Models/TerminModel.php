@@ -17,7 +17,7 @@ class TerminModel extends Model
         protected $table      = 'termin';
         protected $primaryKey = 'IdT';
         protected $returnType = 'object';
-        protected $allowedFields = ['IdPac', 'IdPru', 'DatumIVreme', 'Ostvaren', 'TekstNalaz', 'Snimak'];
+        protected $allowedFields = ['IdPac', 'IdPru', 'DatumIVreme', 'Ostvaren', 'TekstNalaza', 'Snimak'];
 
      /**
 	 * Funkcija koja sluzi za trazenje nalaza za pacijenta sa prosledjenim id-jem

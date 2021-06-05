@@ -116,9 +116,10 @@ class Lekar extends BaseController
         if(!$this->validate(['resultText'=>'required'])){
             return $this->addingMedResults($IdPac, "Unesite Tekst nalaza!");
         }
-        // if(!$this->validate(['imgMed'=>'required'])){
-        //     return $this->addingMedResults($IdPac, "Unesite Putanju snimka!");
-        // }
+        $flag = false;//slika izabrana
+        if(!$this->validate(['imgMed'=>'required'])){
+            $flag = true;//slika nije izabrana
+        }
 //****************************
         $file = $_FILES['imgMed'];
         $fileName = $_FILES['imgMed']['name'];
@@ -132,10 +133,13 @@ class Lekar extends BaseController
         $allowed = array('jpg','png','jpeg','jfif');
 
         if(!in_array( $fileActualExtension,$allowed))
-        return $this->addingMedResults("Fajl koji ste izabrali nije slika!");
+            if($flag == false)
+                return $this->addingMedResults("Fajl koji ste izabrali nije slika!");
 
         if(!($fileError===0))
-        return $this->addingMedResults("Greska pri postavljanju fajla!");
+            if($flag == false)
+                return $this->addingMedResults("Greska pri postavljanju fajla!");
+
 
         //if($fileSize > 1000000)
         //return $this->addingMedResults("Preveliki fajl!");
