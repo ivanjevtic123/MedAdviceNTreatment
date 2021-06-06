@@ -1,0 +1,1414 @@
+{
+  "id": "005ebe0b-d4c2-49f9-afc7-93e039268f7a",
+  "version": "2.0",
+  "name": "MedAdviceNTreatment - Ivan Jevtic",
+  "url": "http://faza5pt3/Gost/index",
+  "tests": [{
+    "id": "43539404-f8ce-4def-94a9-3d6931010063",
+    "name": "1.1 - uspesno logovanje",
+    "commands": [{
+      "id": "33b39981-a629-4695-b75f-0c425ad3aed0",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4513954d-330c-423e-b26e-a3305a761ca7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe852447-f94b-4f3e-a633-a969cc697977",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b91150e7-16a2-411e-bc7b-5e7d1fe45be8",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01ad93c7-8a33-4856-b8b8-325ca87216d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "milan123"
+    }, {
+      "id": "95b9ee62-7de0-4df9-8d32-375a3f8f99a7",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa9d59d5-092b-4dc0-aa3f-bf13e9f7ba13",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "sifra123"
+    }, {
+      "id": "78b59351-26ae-4faa-91c9-d930dd85c7ab",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "62d15b93-bad6-425a-a438-9c53e4c282e6",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "id=wellcomeMsg",
+      "targets": [
+        ["id=wellcomeMsg", "id"],
+        ["css=#wellcomeMsg", "css:finder"],
+        ["xpath=//h1[@id='wellcomeMsg']", "xpath:attributes"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Dobrodošli')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9af02aa6-0e55-40c0-b9a1-a42b168423e3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Menadzer/logout']", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e96e846b-5c1a-41c5-a730-cd7927c11579",
+    "name": "1.2 - neispravna lozinka",
+    "commands": [{
+      "id": "fe3588ab-7b7b-4c59-b74f-d2d7db2a3873",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8225551e-19c2-49f2-986f-47ec7133aede",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e8e27520-2af4-4032-ac95-68d5256a5eea",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5df9cc7-2c15-42c4-a14a-bd7087adae2f",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08a3b9b7-f12a-4c86-a38c-de0977d77607",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "milan123"
+    }, {
+      "id": "4571e28e-cd1e-4ebc-ac6e-eef45db5fefd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "20567af3-19e4-4cca-9ac7-673196f96534",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font > font",
+      "targets": [
+        ["css=font > font", "css:finder"],
+        ["xpath=//font/font", "xpath:position"]
+      ],
+      "value": "Unesite podatke!"
+    }]
+  }, {
+    "id": "a1e763d6-2559-4a33-96fd-b78ef1dfec20",
+    "name": "1.3 - neispravno korisnicko ime",
+    "commands": [{
+      "id": "0d3f3d1d-c20a-4a67-8ae5-5ddee1a412f6",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a270cae4-0254-4a6b-941e-624801a15182",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "189c9dfc-58b8-4a78-ada5-5e01ebd75c79",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e29a20ba-6119-483e-805a-a5bd861bd9ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76723a9f-8d6f-4d8e-8acd-ba993b9e16cb",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "sifra123"
+    }, {
+      "id": "93dde661-a88d-42ab-a9cb-8854c7f6998c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac1af41e-ab35-4517-a07a-dfd362fea313",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font > font",
+      "targets": [
+        ["css=font > font", "css:finder"],
+        ["xpath=//font/font", "xpath:position"]
+      ],
+      "value": "Unesite podatke!"
+    }]
+  }, {
+    "id": "8ef4b3e1-c318-4288-8a41-dcd0d50090da",
+    "name": "1.4 - oba prazna polja",
+    "commands": [{
+      "id": "0c45fe6c-755b-43e1-851e-e832dfd1b8fe",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07b7ea92-7780-47c0-aa7c-3e3a31271a0b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd9cf539-3e5e-495b-a61c-3773c77a8377",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef01d59f-6f43-46af-9e80-c8cb783b2c84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e3eee98-5fbb-4d41-b6b1-9eb12713b74a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font > font",
+      "targets": [
+        ["css=font > font", "css:finder"],
+        ["xpath=//font/font", "xpath:position"]
+      ],
+      "value": "Unesite podatke!"
+    }]
+  }, {
+    "id": "f7ceb923-2dd5-40eb-b227-c6a7a1bc47b3",
+    "name": "2.1 - uspesno ocenjivanje",
+    "commands": [{
+      "id": "d48a4ea4-cf01-4379-829d-68c7135e3a89",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8e99ff6d-b52b-46f8-8d89-dc53dd3bfa0f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c87e3e94-2f46-4640-b415-d5201b90115e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f33522dd-68bf-447d-874f-baaf6dcc1a6f",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1f02558-bea8-4485-b77e-1d1c1d0f8a40",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "miki92"
+    }, {
+      "id": "8b5df9ff-c7e1-4b6f-8148-9274781e51ee",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb0cb718-78e9-47c5-bcea-645424a2bf85",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "milan323"
+    }, {
+      "id": "d0d44955-c447-42a1-b162-a3f2217702cd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "145110d0-45ea-451f-a7ae-60a004981ade",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MOJI LEKARI",
+      "targets": [
+        ["linkText=MOJI LEKARI", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'MOJI LEKARI')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/oceni']", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MOJI LEKARI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c369f7c-1419-40fc-97f4-e68bb1c0a8ef",
+      "comment": "",
+      "command": "click",
+      "target": "name=Ocena",
+      "targets": [
+        ["name=Ocena", "name"],
+        ["css=tr:nth-child(2) select", "css:finder"],
+        ["xpath=//select[@name='Ocena']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ab2a314-2a8e-4425-97ad-4d6fae24217b",
+      "comment": "",
+      "command": "select",
+      "target": "name=Ocena",
+      "targets": [],
+      "value": "label=3"
+    }, {
+      "id": "d1540d32-343c-40d6-b460-5c2f0c0b13f0",
+      "comment": "",
+      "command": "click",
+      "target": "name=Ocena",
+      "targets": [
+        ["name=Ocena", "name"],
+        ["css=tr:nth-child(2) select", "css:finder"],
+        ["xpath=//select[@name='Ocena']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9acdf0a7-bab9-47ed-9fa9-6ea50f052e97",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) .btn",
+      "targets": [
+        ["css=tr:nth-child(2) .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Oceni')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "85b8065f-2566-407c-9401-d0983590c388",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font > font",
+      "targets": [
+        ["css=font > font", "css:finder"],
+        ["xpath=//font/font", "xpath:position"]
+      ],
+      "value": "Uspesno ste ocenili lekara!"
+    }, {
+      "id": "3b4d576f-47e5-46ec-97d2-1f967207e35d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/logout']", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "193263a6-3ddd-485c-980d-7af706804738",
+    "name": "2.2 - nije izabrana ocena",
+    "commands": [{
+      "id": "cfdf1614-595b-4521-9a9c-9fc3eac23610",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17b8862a-5df9-43f1-97b1-4817a58346b7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ba392f9-4cdf-4e8e-9bc8-2335662d7f84",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "82401c65-2dc1-48b5-9b5f-db039aec40d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8505f301-94ec-438c-874d-2133d05ef6ad",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "miki92"
+    }, {
+      "id": "089af82e-f7db-494d-89c5-00fd90a5510b",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "129da1e3-7efd-4b24-8220-3e8c038d0245",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "milan323"
+    }, {
+      "id": "002c2fb4-aece-4bb6-9b49-081c2d85cc49",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "33449859-4ba3-43e2-828f-6ef9d0497861",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MOJI LEKARI",
+      "targets": [
+        ["linkText=MOJI LEKARI", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'MOJI LEKARI')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/oceni']", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MOJI LEKARI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34ddc7bb-6983-429f-ad4e-9ae9c34a0235",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tbody th:nth-child(2)",
+      "targets": [
+        ["css=tbody th:nth-child(2)", "css:finder"],
+        ["xpath=//th[2]", "xpath:position"],
+        ["xpath=//th[contains(.,'Broj dozvoljenih ocenjivanja')]", "xpath:innerText"]
+      ],
+      "value": "Broj dozvoljenih ocenjivanja"
+    }, {
+      "id": "65842d72-0ab1-4f42-bf4b-0045af0fce04",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/logout']", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "010dc089-9cee-454b-8936-7aaa54bf787f",
+    "name": "2.3 - prekoracen broj ocenjivanja",
+    "commands": [{
+      "id": "f3e3a1a5-d61e-4f47-a322-821ea86e1cd6",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "25431b1a-4288-464a-aafb-0312b89a4807",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d40eb60e-aadb-45fd-b9bb-c649a54db6c2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9904f798-cdc9-4e58-8336-682c53d29b8a",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "706672c2-6d00-4478-a249-fa910e934a33",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "miki92"
+    }, {
+      "id": "81f0698c-0e9d-4b34-8421-aa132baf5e51",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6b11552-1eeb-4d68-9f82-ad28a264bf73",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "milan323"
+    }, {
+      "id": "4753e449-cd37-4132-bbc7-f220db80b29c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2d0625f-e5f6-4119-b68f-1f1cdd19b18d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MOJI LEKARI",
+      "targets": [
+        ["linkText=MOJI LEKARI", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'MOJI LEKARI')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/oceni']", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MOJI LEKARI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4743adb5-fca8-4a43-8f7c-fc38f29dc1a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) select",
+      "targets": [
+        ["css=tr:nth-child(5) select", "css:finder"],
+        ["xpath=(//select[@name='Ocena'])[4]", "xpath:attributes"],
+        ["xpath=//tr[5]/td[3]/form/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "edfc7494-bc45-4f48-9122-8585631ac7c8",
+      "comment": "",
+      "command": "select",
+      "target": "css=tr:nth-child(5) select",
+      "targets": [],
+      "value": "label=3"
+    }, {
+      "id": "1f8765a1-45cb-45f9-98cd-a3a4841ae43f",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) select",
+      "targets": [
+        ["css=tr:nth-child(5) select", "css:finder"],
+        ["xpath=(//select[@name='Ocena'])[4]", "xpath:attributes"],
+        ["xpath=//tr[5]/td[3]/form/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08a4a568-b7aa-4072-b5c3-9e3bbbf32b53",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) .btn",
+      "targets": [
+        ["css=tr:nth-child(5) .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[4]", "xpath:attributes"],
+        ["xpath=//tr[5]/td[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4efeadc-ef55-4df4-a01e-ddfc5e3f839f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font > font",
+      "targets": [
+        ["css=font > font", "css:finder"],
+        ["xpath=//font[2]/font", "xpath:position"]
+      ],
+      "value": "Ne mozete vise ocenjivati lekara!"
+    }, {
+      "id": "7b8ada34-35fc-47bd-9b16-fd9005e1a371",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/logout']", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7161cfdd-5163-43bc-90c7-4182b2751a7f",
+    "name": "1.5 - rotirana polja",
+    "commands": [{
+      "id": "0b19f364-4100-406c-8703-36ac1fd0d623",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e06d9fbf-ab95-4a0d-8c06-090479bf9c01",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e8fcf537-9fb6-4f6d-9ccf-9e9e622519ea",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c91b6211-0374-49c5-918c-76d0dc4a6d41",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "807796a0-1d07-4650-9a87-ef5e4cf78642",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "miki92"
+    }, {
+      "id": "b3ac4a5c-72ee-4d43-89d4-27694c02bec7",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a38bbce5-6ad8-4e7a-ab80-8f3fed03f008",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "milan323"
+    }, {
+      "id": "d604ee6d-6719-4c25-806c-bbcc307373a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5da32efb-113e-404f-8878-1436127fe42c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font > font",
+      "targets": [
+        ["css=font > font", "css:finder"],
+        ["xpath=//font/font", "xpath:position"]
+      ],
+      "value": "Korisnik ne postoji!"
+    }]
+  }, {
+    "id": "086c7439-a935-45df-8f3b-3abcaa2337e2",
+    "name": "3.1 - uspesno uklanjanje",
+    "commands": [{
+      "id": "f1de0958-d7c8-4fec-a844-797ea6e88a50",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bba822f6-6d44-4275-9fb1-3aa92036f82e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40c53172-1392-4a7a-baac-277f0a4f5294",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b9ab084-0f66-4ba5-9988-3acce2637a77",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7651c02f-90f6-4c49-8a83-742a178d0f5b",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "milan123"
+    }, {
+      "id": "bda284d4-998e-4438-b6db-53f6de4b49b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3c73461-13c3-4148-a405-9cc3bd785113",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "sifra123"
+    }, {
+      "id": "363cd6d8-8240-4b27-9c14-ce8779ca0422",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a0086df3-c53e-4eb1-8a67-7b50db579fac",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=UKLONI KORISNIKA",
+      "targets": [
+        ["linkText=UKLONI KORISNIKA", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'UKLONI KORISNIKA')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Menadzer/ukloni']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'UKLONI KORISNIKA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4c322e8-7900-4e5d-9a63-7e42b5968c16",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(7) .btn",
+      "targets": [
+        ["css=tr:nth-child(7) .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Ukloni')])[6]", "xpath:link"],
+        ["xpath=//a[@href='http://Faza5pt3/Menadzer/ukloniKorisnika/16']", "xpath:href"],
+        ["xpath=//tr[7]/td[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41541b07-2ee0-4e76-ab84-7577a0d2aae4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font:nth-child(2)",
+      "targets": [
+        ["css=font:nth-child(2)", "css:finder"],
+        ["xpath=//font/font", "xpath:position"]
+      ],
+      "value": "Uspesno ste uklonili korisnika!"
+    }, {
+      "id": "df2864dc-65c0-45ed-8214-39f8dd7854fd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Menadzer/logout']", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "50b265ef-157e-4176-9b03-19c460b3ab96",
+    "name": "4.1 - uspesan pregled kartona - Lekar",
+    "commands": [{
+      "id": "7afc178a-4c55-4500-8ef5-f05826bc176b",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "06e88920-9ed0-4452-8261-73f2db59c57b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f89de12-2228-4321-8b8f-65ae581ec9fd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "39ff0dec-1598-4d20-a583-cfbc72e10208",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39f15024-abc0-42b4-8ee4-f08890df47da",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "petarc111"
+    }, {
+      "id": "f648aff8-3f66-49c8-83fb-4643dbd263c3",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff39f80c-306c-47d7-9ec7-384dd687a89c",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "c501a6d6-ba06-424d-88eb-28de11a29aef",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e458b34-93da-4f86-8218-c39e9f54d536",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MOJI PACIJENTI",
+      "targets": [
+        ["linkText=MOJI PACIJENTI", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'MOJI PACIJENTI')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Lekar/prikaziPacijente']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MOJI PACIJENTI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "80333967-6a5f-4490-8716-12e372f77681",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Karton",
+      "targets": [
+        ["linkText=Karton", "linkText"],
+        ["css=tr:nth-child(2) > td:nth-child(4) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Karton')]", "xpath:link"],
+        ["xpath=//a[@href='http://Faza5pt3/Lekar/prikaziKarton/15']", "xpath:href"],
+        ["xpath=//td[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Karton')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6955bcf5-b208-4067-beb0-9ea739f7366e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-sm-6:nth-child(1) tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=.col-sm-6:nth-child(1) tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Krvna grupa:')]", "xpath:innerText"]
+      ],
+      "value": "Krvna grupa:"
+    }, {
+      "id": "ad9b4ba0-3361-45f6-91fb-e0878777eb8c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Lekar/logout']", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "51690cfb-de67-4726-bbef-3640c3996af6",
+    "name": "4.2 - uspesan pregled kartona - Pacijent",
+    "commands": [{
+      "id": "3b3fefed-af6e-4654-96a0-8c4a3b3913d1",
+      "comment": "",
+      "command": "open",
+      "target": "http://faza5pt3/Gost/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a7bf992f-72cf-4d86-8065-aa9e058e4ec4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "05d54113-d9a3-4b74-bd86-2560918c6040",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Gost/login']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3e38394-c99b-4bc2-89ed-f99af6d81fef",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "644bd6c8-855a-4007-9e6f-635063876fd0",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "miki92"
+    }, {
+      "id": "23eb0d92-83de-4c2a-8e9a-5970d0140fdb",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d310a03-9909-4a35-bd5c-66b8160cf5ff",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "milan323"
+    }, {
+      "id": "f10584ed-d353-4505-bc37-b73c766909ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uloguj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e59861c5-fe1a-4c10-a4e1-3328bdb6f953",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=PREGLED KARTONA",
+      "targets": [
+        ["linkText=PREGLED KARTONA", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'PREGLED KARTONA')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/noviKarton']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'PREGLED KARTONA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f9a49f0-6732-4316-95e5-0fb189ae764b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Karton",
+      "targets": [
+        ["linkText=Karton", "linkText"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Karton')]", "xpath:link"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/prikaziKarton/15']", "xpath:href"],
+        ["xpath=//td[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Karton')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "70da3da2-7590-4dbe-9cc0-64cc1cf97604",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-sm-6:nth-child(1) tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=.col-sm-6:nth-child(1) tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Krvna grupa:')]", "xpath:innerText"]
+      ],
+      "value": "Krvna grupa:"
+    }, {
+      "id": "8a8c61e6-6f00-40e4-81c7-617887ec66c9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGOUT",
+      "targets": [
+        ["linkText=LOGOUT", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGOUT')]", "xpath:link"],
+        ["xpath=//div[@id='header']/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://Faza5pt3/Pacijent/logout']", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "d0e20476-63aa-4cc8-b055-ffa8e0a811fd",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://faza5pt3/Gost/index"],
+  "plugins": []
+}
