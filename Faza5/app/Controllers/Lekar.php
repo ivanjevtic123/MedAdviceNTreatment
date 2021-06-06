@@ -139,6 +139,7 @@ class Lekar extends BaseController
         if(!in_array( $fileActualExtension,$allowed))
             if($flag == false)
                 return $this->addingMedResults("Fajl koji ste izabrali nije slika!");
+                
 
         if(!($fileError===0))
             if($flag == false)
