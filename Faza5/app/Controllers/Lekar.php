@@ -54,7 +54,7 @@ class Lekar extends BaseController
             // $korisnikModel = new KorisnikModel();
                 $terminModel = new TerminModel();
                 $pacijenti = $terminModel->nadjiPacijente($lekar->IdK);
-                   if($pacijenti!=null)
+                  if($pacijenti!=null)
                   return $this->prikaz('pacijenti.php', ['pacijenti'=>$pacijenti]);
                    return $this->prikaz('pacijenti.php', ['poruka'=>'Trenutno nema pacijenata za prikaz!','pacijenti'=>$pacijenti]);
         }
@@ -164,7 +164,9 @@ class Lekar extends BaseController
         // $snimak = $this->request->getVar('imgMed');
         // if($snimak == '') $snimak = null;
     
-        $terminModel->postaviSnimakINalaz($red,$tekst,$path);
+     //   $terminModel->postaviSnimakINalaz($red,$tekst,$path);
+        if($flag==false) $terminModel->postaviSnimakINalaz($red,$tekst,$path);
+        else $terminModel->postaviSnimakINalaz($red,$tekst,null);
 
         $lecioModel = new LecioModel();
 
@@ -172,11 +174,11 @@ class Lekar extends BaseController
         //prvi put Lekar i Pacijent saradjuju => insert u Lecio
         if($lecioModel->postojiLecio($IdPac, $lekar->IdK) == false) {
             $lecioModel->save([
-                'IdPac' => $this->request->getVar('name'),
-                'IdLek' => $this->request->getVar('surname'),
+                'IdPac' => $IdPac,
+                'IdLek' => $lekar->IdK,
             ]);
         }
-        $lecioModel->inkrementirajPreostaloOcena($IdPac, $lekar->IdK);
+        else $lecioModel->inkrementirajPreostaloOcena($IdPac, $lekar->IdK);
         return $this->prikaziPacijente();
     }
 	
