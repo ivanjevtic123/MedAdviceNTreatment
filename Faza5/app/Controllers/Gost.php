@@ -155,6 +155,8 @@ class Gost extends BaseController
             //if((!$this->validate(['img'=>'required'])) && ($vrsta == 'L')){
             //    return $this->register("Izaberite sliku!");
             //}
+            //$file1 = $this->request->getFile('img');
+            //if()
 
             //da li postoji korisnik:
             $korisnikModel = new KorisnikModel();
@@ -191,12 +193,18 @@ class Gost extends BaseController
 
             $allowed = array('jpg','png','jpeg','jfif');
 
+            if(($file == null) && ($vrsta == 'L')) {
+                return $this->register("Izaberite sliku!");
+            }
+
+
             if(!in_array( $fileActualExtension,$allowed) && $vrsta == 'L')
-            return $this->register("Fajl koji ste izabrali nije slika!");
+            return $this->register("Izaberite sliku!");
 
             if(!($fileError===0) && $vrsta == 'L')
             return $this->register("Greska pri postavljanju fajla!");
 
+            
             //if($fileSize > 1000000 && $vrsta == 'L')
             //return $this->register("Preveliki fajl!");
 
